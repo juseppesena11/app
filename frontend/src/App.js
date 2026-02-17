@@ -200,8 +200,8 @@ const AboutSection = () => {
           <div className="relative">
             <div className="img-hover-zoom">
               <img
-                src="https://images.unsplash.com/photo-1702392183172-17fdef8002b4?auto=format&fit=crop&w=800&q=80"
-                alt="Profissional aplicando capoto"
+                src="https://images.unsplash.com/photo-1667893185343-9e869ae6e1bd?auto=format&fit=crop&w=800&q=80"
+                alt="Profissional aplicando capoto em fachada"
                 className="w-full h-[500px] object-cover"
               />
             </div>
