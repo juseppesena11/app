@@ -1,0 +1,130 @@
+{
+  "identity": {
+    "name": "AUREON",
+    "mission": "Premium construction solutions specializing in ETICS (Capoto) and Microcement.",
+    "tone": "Professional, Technical, Durable, Modern, Portuguese Craftsmanship",
+    "archetype": "Organic & Earthy (Construction Variant)"
+  },
+  "typography": {
+    "headings": {
+      "family": "Manrope",
+      "weights": ["600", "700", "800"],
+      "usage": "Main headlines, section titles. Use tight tracking (-0.02em) for large text."
+    },
+    "body": {
+      "family": "DM Sans",
+      "weights": ["400", "500"],
+      "usage": "Paragraphs, UI elements, technical specs. High legibility."
+    },
+    "mono": {
+      "family": "JetBrains Mono",
+      "usage": "Technical data, measurements, codes."
+    }
+  },
+  "colors": {
+    "primary": {
+      "name": "Obsidian Structure",
+      "hex": "#1A1A1A",
+      "usage": "Text, Strong Borders, Primary Buttons (High Contrast)"
+    },
+    "secondary": {
+      "name": "Microcement Beige",
+      "hex": "#E5E0D8",
+      "usage": "Section Backgrounds, Cards, Subtle Borders"
+    },
+    "accent": {
+      "name": "Thermal Terracotta",
+      "hex": "#C8553D",
+      "usage": "Call to Actions (Secondary), Highlights, Icons, 'Warmth' indicators"
+    },
+    "background": {
+      "name": "Plaster White",
+      "hex": "#F9F8F6",
+      "usage": "Main Page Background"
+    },
+    "neutral": {
+      "name": "Stone Grey",
+      "hex": "#8C8C8C",
+      "usage": "Secondary Text, Disabled States"
+    },
+    "success": {
+      "hex": "#2E7D32",
+      "usage": "Form success, Energy Efficiency Ratings"
+    }
+  },
+  "layout": {
+    "grid_system": "Bento Grid (Mode A for Services, Mode B for Technical Specs)",
+    "spacing": "Generous. Use p-12 to p-24 for section padding.",
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "border_radius": "rounded-none (Sharp/Technical) or rounded-sm (2px) for slight softening. Avoid large rounded corners."
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#1A1A1A] text-white hover:bg-[#333333] rounded-none px-8 py-4 uppercase tracking-widest text-sm font-bold transition-all",
+      "secondary": "border border-[#1A1A1A] text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white rounded-none px-8 py-4 uppercase tracking-widest text-sm font-bold transition-all",
+      "accent": "bg-[#C8553D] text-white hover:bg-[#A04430] rounded-none px-8 py-4 font-bold shadow-lg hover:shadow-xl transition-all"
+    },
+    "cards": {
+      "service_card": "bg-white border border-[#E5E0D8] p-8 hover:border-[#C8553D] transition-colors duration-300 group",
+      "technical_card": "bg-[#F5F5F5] p-6 border-l-4 border-[#C8553D]"
+    },
+    "inputs": {
+      "style": "bg-transparent border-b border-[#8C8C8C] focus:border-[#1A1A1A] outline-none rounded-none px-0 py-4 placeholder:text-[#8C8C8C]/50"
+    }
+  },
+  "visual_enhancers": {
+    "textures": "Use subtle noise/grain overlays on solid backgrounds to mimic concrete/plaster texture.",
+    "shadows": "Minimal. Use 'shadow-sm' or flat borders. Construction feels solid, not floating.",
+    "icons": "Phosphor Icons (Thin/Light weight) or Lucide (Stroke 1.5). Technical look."
+  },
+  "motion": {
+    "scroll": "Lenis Smooth Scroll (Mandatory)",
+    "reveal": "Fade-in Up with slight delay for grid items.",
+    "hover": "Images scale slightly (1.05) inside overflow-hidden containers."
+  },
+  "image_urls": {
+    "hero": {
+      "url": "https://images.unsplash.com/photo-1770163821346-b7f07e59c98b?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "alt": "Modern white villa in Portugal with clean ETICS finish",
+      "position": "Hero Background or Main Visual"
+    },
+    "microcement": {
+      "url": "https://images.unsplash.com/photo-1770086962001-3da4f60e7db5?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "alt": "Seamless microcement floor texture",
+      "position": "Services Section - Microcement"
+    },
+    "etics_process": {
+      "url": "https://images.unsplash.com/photo-1702392183172-17fdef8002b4?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "alt": "Worker applying external insulation",
+      "position": "Services Section - Capoto/ETICS"
+    },
+    "interior_detail": {
+      "url": "https://images.unsplash.com/photo-1722650362655-b01ca4d53565?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "alt": "Modern interior with microcement walls",
+      "position": "Portfolio or About Section"
+    }
+  },
+  "instructions_to_main_agent": {
+    "general": "Build a single-page application (SPA) feel with distinct sections. Use 'react-scroll' for navigation.",
+    "hero_section": "Full height (h-screen). Overlay text: 'Excelência em Isolamento e Acabamentos'. CTA: 'Pedir Orçamento'.",
+    "services_section": "Use a Bento Grid. Highlight 'Capoto (ETICS)' and 'Microcimento' as the two main pillars.",
+    "technical_section": "Create a 'Technical Area' with accordions for 'Vantagens do Capoto', 'Processo de Aplicação', 'Normas Europeias'. Use the accent color for icons here.",
+    "portfolio_section": "Masonry grid layout. Use the provided images mixed with placeholders if needed. Implement a simple lightbox.",
+    "contact_section": "Two columns: Left = Contact Info + Map placeholder. Right = Form (Name, Email, Phone, Service Type, Message).",
+    "whatsapp": "Floating button bottom-right. Green (#25D366) with WhatsApp icon.",
+    "footer": "Dark background (#1A1A1A). White text. Links to privacy, terms, and social media."
+  },
+  "universal_guidelines": {
+    "do_not": [
+      "Do not use generic 'construction blue' (#0000FF).",
+      "Do not use rounded buttons (use sharp/pill).",
+      "Do not use 'Inter' font for headings.",
+      "Do not make the site look cluttered. White space is luxury."
+    ],
+    "must_do": [
+      "Use 'data-testid' on all interactive elements.",
+      "Ensure contrast ratios are accessible.",
+      "Use 'sonner' for form success/error toasts."
+    ]
+  }
+}
