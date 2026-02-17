@@ -29,8 +29,8 @@ const Navbar = ({ activeSection }) => {
     { href: "#inicio", label: "Início" },
     { href: "#sobre", label: "Sobre" },
     { href: "#servicos", label: "Serviços" },
+    { href: "#calculadora", label: "Calculadora" },
     { href: "#portfolio", label: "Portfólio" },
-    { href: "#tecnico", label: "Área Técnica" },
     { href: "#contacto", label: "Contacto" }
   ];
 
