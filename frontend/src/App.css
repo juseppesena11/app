@@ -1,34 +1,150 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Additional App Styles */
+
+/* Smooth transitions */
+* {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Custom focus states */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #C8553D;
+  outline-offset: 2px;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+/* Loading state */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
 }
 
-.App-link {
-    color: #61dafb;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent {
+    padding: 12px 24px;
+    font-size: 12px;
+  }
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Portfolio masonry effect */
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 200px;
+  grid-auto-flow: dense;
+  gap: 16px;
+}
+
+.masonry-grid .large {
+  grid-row: span 2;
+}
+
+/* Form focus animations */
+.input-underline::placeholder {
+  transition: opacity 0.3s ease;
+}
+
+.input-underline:focus::placeholder {
+  opacity: 0.3;
+}
+
+/* Hero parallax effect */
+@media (min-width: 768px) {
+  #inicio {
+    background-attachment: fixed;
+  }
+}
+
+/* Service card hover */
+.service-card:hover h3 {
+  color: #C8553D;
+  transition: color 0.3s ease;
+}
+
+/* Accordion transitions */
+.accordion-content {
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+/* Stats counter animation */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-item {
+  animation: countUp 0.6s ease-out forwards;
+}
+
+/* WhatsApp pulse */
+@keyframes whatsappPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-float {
+  animation: whatsappPulse 2s infinite;
+}
+
+/* Lightbox animation */
+.lightbox-overlay {
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox-overlay > div:not(:first-child) {
+  animation: fadeInUp 0.4s ease;
+}
+
+/* Section divider */
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background-color: #C8553D;
+  margin: 0 auto 24px;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #1A1A1A 0%, #C8553D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card shadows */
+.card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-shadow:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Image grayscale hover */
+.grayscale-hover img {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+
+.grayscale-hover:hover img {
+  filter: grayscale(0%);
 }
