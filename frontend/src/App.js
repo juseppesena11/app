@@ -251,7 +251,7 @@ const ServicesSection = () => {
       title: "Capoto / ETICS",
       subtitle: "Sistema de Isolamento Térmico pelo Exterior",
       description: "Aplicação profissional do sistema ETICS com placas de EPS, XPS ou lã mineral. Melhore a eficiência energética da sua casa em até 40%.",
-      image: "https://images.unsplash.com/photo-1702392183172-17fdef8002b4?auto=format&fit=crop&w=600&q=80",
+      image: "https://images.unsplash.com/photo-1589572394490-771aa22db633?auto=format&fit=crop&w=600&q=80",
       features: ["Isolamento Térmico", "Impermeabilização", "Acabamento Estético"],
       large: true
     },
@@ -260,7 +260,7 @@ const ServicesSection = () => {
       title: "Microcimento",
       subtitle: "Acabamentos Decorativos de Alta Performance",
       description: "Revestimento contínuo para pavimentos, paredes e mobiliário. Estética moderna com alta resistência e fácil manutenção.",
-      image: "https://images.unsplash.com/photo-1770086962001-3da4f60e7db5?auto=format&fit=crop&w=600&q=80",
+      image: "https://images.unsplash.com/photo-1762803842055-de1e5fb14477?auto=format&fit=crop&w=600&q=80",
       features: ["Pavimentos", "Paredes", "Bancadas"],
       large: true
     },
@@ -269,7 +269,7 @@ const ServicesSection = () => {
       title: "Reabilitação de Fachadas",
       subtitle: "Renovação Completa",
       description: "Recuperação e melhoria de fachadas existentes com tratamento de fissuras e patologias.",
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80",
+      image: "https://images.unsplash.com/photo-1667893185343-9e869ae6e1bd?auto=format&fit=crop&w=400&q=80",
       features: ["Diagnóstico", "Reparação", "Proteção"],
       large: false
     },
