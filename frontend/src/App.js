@@ -336,6 +336,378 @@ const ServicesSection = () => {
   );
 };
 
+// Budget Calculator Section
+const BudgetCalculator = () => {
+  const [serviceType, setServiceType] = useState('');
+  const [area, setArea] = useState('');
+  const [finishType, setFinishType] = useState('');
+  const [complexity, setComplexity] = useState('normal');
+  const [estimate, setEstimate] = useState(null);
+
+  // Pricing per m² (in euros) - ranges
+  const pricing = {
+    capoto: {
+      base: { min: 45, max: 65 },
+      finishes: {
+        acrilico: { min: 0, max: 0 },
+        silicone: { min: 8, max: 12 },
+        mineral: { min: 5, max: 8 }
+      }
+    },
+    microcimento: {
+      base: { min: 55, max: 85 },
+      finishes: {
+        mate: { min: 0, max: 0 },
+        acetinado: { min: 5, max: 10 },
+        brilhante: { min: 10, max: 15 }
+      }
+    }
+  };
+
+  const complexityMultiplier = {
+    simples: 0.9,
+    normal: 1,
+    complexo: 1.2
+  };
+
+  const calculateEstimate = () => {
+    if (!serviceType || !area || !finishType || parseFloat(area) <= 0) {
+      toast.error('Por favor, preencha todos os campos corretamente.');
+      return;
+    }
+
+    const areaNum = parseFloat(area);
+    const service = pricing[serviceType];
+    const finish = service.finishes[finishType];
+    const multiplier = complexityMultiplier[complexity];
+
+    const minPrice = (service.base.min + finish.min) * areaNum * multiplier;
+    const maxPrice = (service.base.max + finish.max) * areaNum * multiplier;
+
+    setEstimate({
+      min: Math.round(minPrice),
+      max: Math.round(maxPrice),
+      area: areaNum,
+      service: serviceType === 'capoto' ? 'Capoto / ETICS' : 'Microcimento'
+    });
+  };
+
+  const resetCalculator = () => {
+    setServiceType('');
+    setArea('');
+    setFinishType('');
+    setComplexity('normal');
+    setEstimate(null);
+  };
+
+  const scrollToContact = () => {
+    const element = document.querySelector('#contacto');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section id="calculadora" data-testid="calculator-section" className="py-24 bg-[#1A1A1A]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Content */}
+          <div>
+            <p className="text-[#C8553D] uppercase tracking-[0.2em] text-sm font-semibold mb-4">
+              Calculadora de Orçamento
+            </p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
+              Obtenha uma Estimativa Instantânea
+            </h2>
+            <p className="text-white/70 text-lg mb-8 leading-relaxed">
+              Use a nossa calculadora para obter uma estimativa de custos para o seu projeto. 
+              Os valores apresentados são indicativos e podem variar conforme as especificidades da obra.
+            </p>
+
+            <div className="space-y-4 mb-8">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-[#C8553D] flex items-center justify-center flex-shrink-0">
+                  <Calculator className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white">Cálculo Rápido</h4>
+                  <p className="text-white/60 text-sm">Resultado em segundos baseado na área e tipo de serviço</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-[#C8553D] flex items-center justify-center flex-shrink-0">
+                  <Euro className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white">Preços Competitivos</h4>
+                  <p className="text-white/60 text-sm">Valores atualizados com o mercado português</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-[#C8553D] flex items-center justify-center flex-shrink-0">
+                  <Info className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white">Sem Compromisso</h4>
+                  <p className="text-white/60 text-sm">Estimativa gratuita para planear o seu investimento</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Calculator Card */}
+          <div className="bg-white p-8">
+            {!estimate ? (
+              <>
+                <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center gap-2">
+                  <Calculator className="w-6 h-6 text-[#C8553D]" />
+                  Simular Orçamento
+                </h3>
+
+                <div className="space-y-6">
+                  {/* Service Type */}
+                  <div>
+                    <label className="block text-sm font-medium text-[#1A1A1A] mb-3">
+                      Tipo de Serviço
+                    </label>
+                    <div className="grid grid-cols-2 gap-4">
+                      <button
+                        type="button"
+                        data-testid="calc-service-capoto"
+                        onClick={() => { setServiceType('capoto'); setFinishType(''); }}
+                        className={`p-4 border-2 text-left transition-all ${
+                          serviceType === 'capoto' 
+                            ? 'border-[#C8553D] bg-[#C8553D]/5' 
+                            : 'border-[#E5E0D8] hover:border-[#C8553D]/50'
+                        }`}
+                      >
+                        <ThermometerSun className={`w-6 h-6 mb-2 ${serviceType === 'capoto' ? 'text-[#C8553D]' : 'text-[#8C8C8C]'}`} />
+                        <p className="font-bold text-[#1A1A1A]">Capoto / ETICS</p>
+                        <p className="text-xs text-[#8C8C8C]">Isolamento térmico</p>
+                      </button>
+                      <button
+                        type="button"
+                        data-testid="calc-service-microcimento"
+                        onClick={() => { setServiceType('microcimento'); setFinishType(''); }}
+                        className={`p-4 border-2 text-left transition-all ${
+                          serviceType === 'microcimento' 
+                            ? 'border-[#C8553D] bg-[#C8553D]/5' 
+                            : 'border-[#E5E0D8] hover:border-[#C8553D]/50'
+                        }`}
+                      >
+                        <Paintbrush className={`w-6 h-6 mb-2 ${serviceType === 'microcimento' ? 'text-[#C8553D]' : 'text-[#8C8C8C]'}`} />
+                        <p className="font-bold text-[#1A1A1A]">Microcimento</p>
+                        <p className="text-xs text-[#8C8C8C]">Acabamento decorativo</p>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Area */}
+                  <div>
+                    <label className="block text-sm font-medium text-[#1A1A1A] mb-2">
+                      Área Total (m²)
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="number"
+                        data-testid="calc-area"
+                        value={area}
+                        onChange={(e) => setArea(e.target.value)}
+                        placeholder="Ex: 100"
+                        min="1"
+                        className="input-underline pl-10"
+                      />
+                      <Ruler className="absolute left-0 top-1/2 -translate-y-1/2 w-5 h-5 text-[#8C8C8C]" />
+                    </div>
+                  </div>
+
+                  {/* Finish Type */}
+                  {serviceType && (
+                    <div>
+                      <label className="block text-sm font-medium text-[#1A1A1A] mb-3">
+                        Tipo de Acabamento
+                      </label>
+                      <div className="grid grid-cols-3 gap-3">
+                        {serviceType === 'capoto' ? (
+                          <>
+                            <button
+                              type="button"
+                              data-testid="calc-finish-acrilico"
+                              onClick={() => setFinishType('acrilico')}
+                              className={`p-3 border text-center text-sm transition-all ${
+                                finishType === 'acrilico' 
+                                  ? 'border-[#C8553D] bg-[#C8553D] text-white' 
+                                  : 'border-[#E5E0D8] hover:border-[#C8553D]'
+                              }`}
+                            >
+                              Acrílico
+                            </button>
+                            <button
+                              type="button"
+                              data-testid="calc-finish-silicone"
+                              onClick={() => setFinishType('silicone')}
+                              className={`p-3 border text-center text-sm transition-all ${
+                                finishType === 'silicone' 
+                                  ? 'border-[#C8553D] bg-[#C8553D] text-white' 
+                                  : 'border-[#E5E0D8] hover:border-[#C8553D]'
+                              }`}
+                            >
+                              Silicone
+                            </button>
+                            <button
+                              type="button"
+                              data-testid="calc-finish-mineral"
+                              onClick={() => setFinishType('mineral')}
+                              className={`p-3 border text-center text-sm transition-all ${
+                                finishType === 'mineral' 
+                                  ? 'border-[#C8553D] bg-[#C8553D] text-white' 
+                                  : 'border-[#E5E0D8] hover:border-[#C8553D]'
+                              }`}
+                            >
+                              Mineral
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            <button
+                              type="button"
+                              data-testid="calc-finish-mate"
+                              onClick={() => setFinishType('mate')}
+                              className={`p-3 border text-center text-sm transition-all ${
+                                finishType === 'mate' 
+                                  ? 'border-[#C8553D] bg-[#C8553D] text-white' 
+                                  : 'border-[#E5E0D8] hover:border-[#C8553D]'
+                              }`}
+                            >
+                              Mate
+                            </button>
+                            <button
+                              type="button"
+                              data-testid="calc-finish-acetinado"
+                              onClick={() => setFinishType('acetinado')}
+                              className={`p-3 border text-center text-sm transition-all ${
+                                finishType === 'acetinado' 
+                                  ? 'border-[#C8553D] bg-[#C8553D] text-white' 
+                                  : 'border-[#E5E0D8] hover:border-[#C8553D]'
+                              }`}
+                            >
+                              Acetinado
+                            </button>
+                            <button
+                              type="button"
+                              data-testid="calc-finish-brilhante"
+                              onClick={() => setFinishType('brilhante')}
+                              className={`p-3 border text-center text-sm transition-all ${
+                                finishType === 'brilhante' 
+                                  ? 'border-[#C8553D] bg-[#C8553D] text-white' 
+                                  : 'border-[#E5E0D8] hover:border-[#C8553D]'
+                              }`}
+                            >
+                              Brilhante
+                            </button>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Complexity */}
+                  <div>
+                    <label className="block text-sm font-medium text-[#1A1A1A] mb-3">
+                      Complexidade do Projeto
+                    </label>
+                    <div className="grid grid-cols-3 gap-3">
+                      {[
+                        { id: 'simples', label: 'Simples', desc: '-10%' },
+                        { id: 'normal', label: 'Normal', desc: 'Base' },
+                        { id: 'complexo', label: 'Complexo', desc: '+20%' }
+                      ].map((opt) => (
+                        <button
+                          key={opt.id}
+                          type="button"
+                          data-testid={`calc-complexity-${opt.id}`}
+                          onClick={() => setComplexity(opt.id)}
+                          className={`p-3 border text-center transition-all ${
+                            complexity === opt.id 
+                              ? 'border-[#C8553D] bg-[#C8553D] text-white' 
+                              : 'border-[#E5E0D8] hover:border-[#C8553D]'
+                          }`}
+                        >
+                          <p className="text-sm font-medium">{opt.label}</p>
+                          <p className={`text-xs ${complexity === opt.id ? 'text-white/70' : 'text-[#8C8C8C]'}`}>{opt.desc}</p>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Calculate Button */}
+                  <button
+                    type="button"
+                    data-testid="calc-submit"
+                    onClick={calculateEstimate}
+                    className="btn-accent w-full flex items-center justify-center gap-2"
+                  >
+                    <Calculator className="w-5 h-5" />
+                    Calcular Estimativa
+                  </button>
+                </div>
+              </>
+            ) : (
+              /* Results */
+              <div data-testid="calc-result" className="text-center">
+                <div className="w-16 h-16 bg-[#C8553D]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle2 className="w-8 h-8 text-[#C8553D]" />
+                </div>
+                <h3 className="text-xl font-bold text-[#1A1A1A] mb-2">Estimativa Calculada</h3>
+                <p className="text-[#8C8C8C] mb-6">{estimate.service} • {estimate.area} m²</p>
+                
+                <div className="bg-[#F9F8F6] p-6 mb-6">
+                  <p className="text-sm text-[#8C8C8C] uppercase tracking-wider mb-2">Valor Estimado</p>
+                  <p className="text-4xl font-extrabold text-[#1A1A1A]">
+                    €{estimate.min.toLocaleString('pt-PT')} - €{estimate.max.toLocaleString('pt-PT')}
+                  </p>
+                  <p className="text-xs text-[#8C8C8C] mt-2">*Valores indicativos, sujeitos a vistoria técnica</p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="bg-[#E5E0D8]/30 p-4">
+                    <p className="text-2xl font-bold text-[#1A1A1A]">€{Math.round(estimate.min / estimate.area)}</p>
+                    <p className="text-xs text-[#8C8C8C]">Mín. por m²</p>
+                  </div>
+                  <div className="bg-[#E5E0D8]/30 p-4">
+                    <p className="text-2xl font-bold text-[#1A1A1A]">€{Math.round(estimate.max / estimate.area)}</p>
+                    <p className="text-xs text-[#8C8C8C]">Máx. por m²</p>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <button
+                    type="button"
+                    data-testid="calc-contact"
+                    onClick={scrollToContact}
+                    className="btn-accent w-full flex items-center justify-center gap-2"
+                  >
+                    Pedir Orçamento Detalhado
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                  <button
+                    type="button"
+                    data-testid="calc-reset"
+                    onClick={resetCalculator}
+                    className="btn-secondary w-full"
+                  >
+                    Nova Simulação
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // Portfolio Section
 const PortfolioSection = ({ projects, onProjectClick }) => {
   const [filter, setFilter] = useState('all');
