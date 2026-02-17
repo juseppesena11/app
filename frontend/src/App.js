@@ -4,7 +4,8 @@ import axios from "axios";
 import { 
   Phone, Mail, MapPin, Clock, ChevronDown, X, Menu, 
   Shield, ThermometerSun, Paintbrush, CheckCircle2, 
-  Building2, Award, Users, ArrowRight, ExternalLink
+  Building2, Award, Users, ArrowRight, ExternalLink,
+  Calculator, Ruler, Euro, Info
 } from "lucide-react";
 import { Toaster, toast } from "sonner";
 
