@@ -1,0 +1,622 @@
+{
+  "summary": {
+    "tests_run": 15,
+    "tests_passed": 15,
+    "success_rate": 100.0,
+    "timestamp": "2026-02-17T01:12:51.712099"
+  },
+  "test_results": [
+    {
+      "test_name": "API Root",
+      "method": "GET",
+      "endpoint": "",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "timestamp": "2026-02-17T01:12:48.939688",
+      "response_data": {
+        "message": "AUREON API - Especialistas em Capoto e Microcimento"
+      }
+    },
+    {
+      "test_name": "Health Check",
+      "method": "GET",
+      "endpoint": "health",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "timestamp": "2026-02-17T01:12:49.121839",
+      "response_data": {
+        "status": "healthy",
+        "service": "AUREON API"
+      }
+    },
+    {
+      "test_name": "Seed Portfolio",
+      "method": "POST",
+      "endpoint": "seed-portfolio",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "timestamp": "2026-02-17T01:12:49.299214",
+      "response_data": {
+        "message": "Portfolio j\u00e1 possui dados",
+        "count": 12
+      }
+    },
+    {
+      "test_name": "Get All Portfolio",
+      "method": "GET",
+      "endpoint": "portfolio",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "timestamp": "2026-02-17T01:12:49.527641",
+      "response_data": [
+        {
+          "id": "52a25db1-bd29-4d0d-992f-5b05f37a1a88",
+          "title": "Moradia Moderna em Cascais",
+          "description": "Aplica\u00e7\u00e3o de sistema ETICS completo com acabamento em reboco silicone branco. Melhoria de efici\u00eancia energ\u00e9tica em 40%.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1770163821346-b7f07e59c98b?w=800",
+          "location": "Cascais, Portugal",
+          "year": 2024,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.632321Z"
+        },
+        {
+          "id": "8a11be7c-9564-46f7-a2b3-b44432d193f9",
+          "title": "Apartamento T3 em Lisboa",
+          "description": "Pavimento e paredes em microcimento cinza claro. Acabamento acetinado de alta durabilidade.",
+          "category": "microcimento",
+          "image_url": "https://images.unsplash.com/photo-1770086962001-3da4f60e7db5?w=800",
+          "location": "Lisboa, Portugal",
+          "year": 2024,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.632345Z"
+        },
+        {
+          "id": "4f642b84-d25b-4bfb-a531-0650585476dd",
+          "title": "Edif\u00edcio Residencial no Porto",
+          "description": "Reabilita\u00e7\u00e3o de fachada com sistema ETICS. 12 apartamentos, 2000m\u00b2 de \u00e1rea intervencionada.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1702392183172-17fdef8002b4?w=800",
+          "location": "Porto, Portugal",
+          "year": 2023,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.632357Z"
+        },
+        {
+          "id": "2b6e76fc-ef57-452b-8d5f-773087230008",
+          "title": "Loft Industrial em Set\u00fabal",
+          "description": "Microcimento em pavimentos e bancadas. Acabamento mate com tratamento anti-manchas.",
+          "category": "microcimento",
+          "image_url": "https://images.unsplash.com/photo-1722650362655-b01ca4d53565?w=800",
+          "location": "Set\u00fabal, Portugal",
+          "year": 2023,
+          "featured": false,
+          "created_at": "2026-02-17T01:10:33.632366Z"
+        },
+        {
+          "id": "79d1bb7e-b7c0-4dc9-afee-555f8de424e5",
+          "title": "Casa de F\u00e9rias no Algarve",
+          "description": "Sistema ETICS com acabamento em reboco mineral. Prote\u00e7\u00e3o t\u00e9rmica superior para clima quente.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+          "location": "Albufeira, Portugal",
+          "year": 2024,
+          "featured": false,
+          "created_at": "2026-02-17T01:10:33.632372Z"
+        },
+        {
+          "id": "ef4b3a0d-9beb-49c8-98bc-5475ddc52966",
+          "title": "Restaurante Gourmet em Sintra",
+          "description": "Microcimento em paredes, ch\u00e3o e balc\u00e3o. Cor terracota personalizada para ambiente acolhedor.",
+          "category": "microcimento",
+          "image_url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+          "location": "Sintra, Portugal",
+          "year": 2023,
+          "featured": false,
+          "created_at": "2026-02-17T01:10:33.632384Z"
+        },
+        {
+          "id": "cb18b5a4-1933-48a3-a6e4-4879ef2e1a39",
+          "title": "Moradia Moderna em Cascais",
+          "description": "Aplica\u00e7\u00e3o de sistema ETICS completo com acabamento em reboco silicone branco. Melhoria de efici\u00eancia energ\u00e9tica em 40%.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1770163821346-b7f07e59c98b?w=800",
+          "location": "Cascais, Portugal",
+          "year": 2024,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.633204Z"
+        },
+        {
+          "id": "560c3ea5-5589-4b0d-9b2f-f19b2e319a89",
+          "title": "Apartamento T3 em Lisboa",
+          "description": "Pavimento e paredes em microcimento cinza claro. Acabamento acetinado de alta durabilidade.",
+          "category": "microcimento",
+          "image_url": "https://images.unsplash.com/photo-1770086962001-3da4f60e7db5?w=800",
+          "location": "Lisboa, Portugal",
+          "year": 2024,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.633217Z"
+        },
+        {
+          "id": "4eb19fc2-2a41-4f6e-8b9f-55f4b99388b1",
+          "title": "Edif\u00edcio Residencial no Porto",
+          "description": "Reabilita\u00e7\u00e3o de fachada com sistema ETICS. 12 apartamentos, 2000m\u00b2 de \u00e1rea intervencionada.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1702392183172-17fdef8002b4?w=800",
+          "location": "Porto, Portugal",
+          "year": 2023,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.633228Z"
+        },
+        {
+          "id": "28e4f0fd-8317-4e91-9573-17c4742120a0",
+          "title": "Loft Industrial em Set\u00fabal",
+          "description": "Microcimento em pavimentos e bancadas. Acabamento mate com tratamento anti-manchas.",
+          "category": "microcimento",
+          "image_url": "https://images.unsplash.com/photo-1722650362655-b01ca4d53565?w=800",
+          "location": "Set\u00fabal, Portugal",
+          "year": 2023,
+          "featured": false,
+          "created_at": "2026-02-17T01:10:33.633233Z"
+        },
+        {
+          "id": "ed5888b1-fcdf-40fc-95ae-4a4dd1da9f3c",
+          "title": "Casa de F\u00e9rias no Algarve",
+          "description": "Sistema ETICS com acabamento em reboco mineral. Prote\u00e7\u00e3o t\u00e9rmica superior para clima quente.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+          "location": "Albufeira, Portugal",
+          "year": 2024,
+          "featured": false,
+          "created_at": "2026-02-17T01:10:33.633237Z"
+        },
+        {
+          "id": "03812f46-5c78-4ab1-b4db-9f62255fe93a",
+          "title": "Restaurante Gourmet em Sintra",
+          "description": "Microcimento em paredes, ch\u00e3o e balc\u00e3o. Cor terracota personalizada para ambiente acolhedor.",
+          "category": "microcimento",
+          "image_url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+          "location": "Sintra, Portugal",
+          "year": 2023,
+          "featured": false,
+          "created_at": "2026-02-17T01:10:33.633242Z"
+        }
+      ]
+    },
+    {
+      "test_name": "Filter Capoto Projects",
+      "method": "GET",
+      "endpoint": "portfolio",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "timestamp": "2026-02-17T01:12:49.674091",
+      "response_data": [
+        {
+          "id": "52a25db1-bd29-4d0d-992f-5b05f37a1a88",
+          "title": "Moradia Moderna em Cascais",
+          "description": "Aplica\u00e7\u00e3o de sistema ETICS completo com acabamento em reboco silicone branco. Melhoria de efici\u00eancia energ\u00e9tica em 40%.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1770163821346-b7f07e59c98b?w=800",
+          "location": "Cascais, Portugal",
+          "year": 2024,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.632321Z"
+        },
+        {
+          "id": "4f642b84-d25b-4bfb-a531-0650585476dd",
+          "title": "Edif\u00edcio Residencial no Porto",
+          "description": "Reabilita\u00e7\u00e3o de fachada com sistema ETICS. 12 apartamentos, 2000m\u00b2 de \u00e1rea intervencionada.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1702392183172-17fdef8002b4?w=800",
+          "location": "Porto, Portugal",
+          "year": 2023,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.632357Z"
+        },
+        {
+          "id": "79d1bb7e-b7c0-4dc9-afee-555f8de424e5",
+          "title": "Casa de F\u00e9rias no Algarve",
+          "description": "Sistema ETICS com acabamento em reboco mineral. Prote\u00e7\u00e3o t\u00e9rmica superior para clima quente.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+          "location": "Albufeira, Portugal",
+          "year": 2024,
+          "featured": false,
+          "created_at": "2026-02-17T01:10:33.632372Z"
+        },
+        {
+          "id": "cb18b5a4-1933-48a3-a6e4-4879ef2e1a39",
+          "title": "Moradia Moderna em Cascais",
+          "description": "Aplica\u00e7\u00e3o de sistema ETICS completo com acabamento em reboco silicone branco. Melhoria de efici\u00eancia energ\u00e9tica em 40%.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1770163821346-b7f07e59c98b?w=800",
+          "location": "Cascais, Portugal",
+          "year": 2024,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.633204Z"
+        },
+        {
+          "id": "4eb19fc2-2a41-4f6e-8b9f-55f4b99388b1",
+          "title": "Edif\u00edcio Residencial no Porto",
+          "description": "Reabilita\u00e7\u00e3o de fachada com sistema ETICS. 12 apartamentos, 2000m\u00b2 de \u00e1rea intervencionada.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1702392183172-17fdef8002b4?w=800",
+          "location": "Porto, Portugal",
+          "year": 2023,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.633228Z"
+        },
+        {
+          "id": "ed5888b1-fcdf-40fc-95ae-4a4dd1da9f3c",
+          "title": "Casa de F\u00e9rias no Algarve",
+          "description": "Sistema ETICS com acabamento em reboco mineral. Prote\u00e7\u00e3o t\u00e9rmica superior para clima quente.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+          "location": "Albufeira, Portugal",
+          "year": 2024,
+          "featured": false,
+          "created_at": "2026-02-17T01:10:33.633237Z"
+        }
+      ]
+    },
+    {
+      "test_name": "Filter Microcimento Projects",
+      "method": "GET",
+      "endpoint": "portfolio",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "timestamp": "2026-02-17T01:12:49.901374",
+      "response_data": [
+        {
+          "id": "8a11be7c-9564-46f7-a2b3-b44432d193f9",
+          "title": "Apartamento T3 em Lisboa",
+          "description": "Pavimento e paredes em microcimento cinza claro. Acabamento acetinado de alta durabilidade.",
+          "category": "microcimento",
+          "image_url": "https://images.unsplash.com/photo-1770086962001-3da4f60e7db5?w=800",
+          "location": "Lisboa, Portugal",
+          "year": 2024,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.632345Z"
+        },
+        {
+          "id": "2b6e76fc-ef57-452b-8d5f-773087230008",
+          "title": "Loft Industrial em Set\u00fabal",
+          "description": "Microcimento em pavimentos e bancadas. Acabamento mate com tratamento anti-manchas.",
+          "category": "microcimento",
+          "image_url": "https://images.unsplash.com/photo-1722650362655-b01ca4d53565?w=800",
+          "location": "Set\u00fabal, Portugal",
+          "year": 2023,
+          "featured": false,
+          "created_at": "2026-02-17T01:10:33.632366Z"
+        },
+        {
+          "id": "ef4b3a0d-9beb-49c8-98bc-5475ddc52966",
+          "title": "Restaurante Gourmet em Sintra",
+          "description": "Microcimento em paredes, ch\u00e3o e balc\u00e3o. Cor terracota personalizada para ambiente acolhedor.",
+          "category": "microcimento",
+          "image_url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+          "location": "Sintra, Portugal",
+          "year": 2023,
+          "featured": false,
+          "created_at": "2026-02-17T01:10:33.632384Z"
+        },
+        {
+          "id": "560c3ea5-5589-4b0d-9b2f-f19b2e319a89",
+          "title": "Apartamento T3 em Lisboa",
+          "description": "Pavimento e paredes em microcimento cinza claro. Acabamento acetinado de alta durabilidade.",
+          "category": "microcimento",
+          "image_url": "https://images.unsplash.com/photo-1770086962001-3da4f60e7db5?w=800",
+          "location": "Lisboa, Portugal",
+          "year": 2024,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.633217Z"
+        },
+        {
+          "id": "28e4f0fd-8317-4e91-9573-17c4742120a0",
+          "title": "Loft Industrial em Set\u00fabal",
+          "description": "Microcimento em pavimentos e bancadas. Acabamento mate com tratamento anti-manchas.",
+          "category": "microcimento",
+          "image_url": "https://images.unsplash.com/photo-1722650362655-b01ca4d53565?w=800",
+          "location": "Set\u00fabal, Portugal",
+          "year": 2023,
+          "featured": false,
+          "created_at": "2026-02-17T01:10:33.633233Z"
+        },
+        {
+          "id": "03812f46-5c78-4ab1-b4db-9f62255fe93a",
+          "title": "Restaurante Gourmet em Sintra",
+          "description": "Microcimento em paredes, ch\u00e3o e balc\u00e3o. Cor terracota personalizada para ambiente acolhedor.",
+          "category": "microcimento",
+          "image_url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+          "location": "Sintra, Portugal",
+          "year": 2023,
+          "featured": false,
+          "created_at": "2026-02-17T01:10:33.633242Z"
+        }
+      ]
+    },
+    {
+      "test_name": "Get Featured Projects",
+      "method": "GET",
+      "endpoint": "portfolio",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "timestamp": "2026-02-17T01:12:50.078693",
+      "response_data": [
+        {
+          "id": "52a25db1-bd29-4d0d-992f-5b05f37a1a88",
+          "title": "Moradia Moderna em Cascais",
+          "description": "Aplica\u00e7\u00e3o de sistema ETICS completo com acabamento em reboco silicone branco. Melhoria de efici\u00eancia energ\u00e9tica em 40%.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1770163821346-b7f07e59c98b?w=800",
+          "location": "Cascais, Portugal",
+          "year": 2024,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.632321Z"
+        },
+        {
+          "id": "8a11be7c-9564-46f7-a2b3-b44432d193f9",
+          "title": "Apartamento T3 em Lisboa",
+          "description": "Pavimento e paredes em microcimento cinza claro. Acabamento acetinado de alta durabilidade.",
+          "category": "microcimento",
+          "image_url": "https://images.unsplash.com/photo-1770086962001-3da4f60e7db5?w=800",
+          "location": "Lisboa, Portugal",
+          "year": 2024,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.632345Z"
+        },
+        {
+          "id": "4f642b84-d25b-4bfb-a531-0650585476dd",
+          "title": "Edif\u00edcio Residencial no Porto",
+          "description": "Reabilita\u00e7\u00e3o de fachada com sistema ETICS. 12 apartamentos, 2000m\u00b2 de \u00e1rea intervencionada.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1702392183172-17fdef8002b4?w=800",
+          "location": "Porto, Portugal",
+          "year": 2023,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.632357Z"
+        },
+        {
+          "id": "cb18b5a4-1933-48a3-a6e4-4879ef2e1a39",
+          "title": "Moradia Moderna em Cascais",
+          "description": "Aplica\u00e7\u00e3o de sistema ETICS completo com acabamento em reboco silicone branco. Melhoria de efici\u00eancia energ\u00e9tica em 40%.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1770163821346-b7f07e59c98b?w=800",
+          "location": "Cascais, Portugal",
+          "year": 2024,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.633204Z"
+        },
+        {
+          "id": "560c3ea5-5589-4b0d-9b2f-f19b2e319a89",
+          "title": "Apartamento T3 em Lisboa",
+          "description": "Pavimento e paredes em microcimento cinza claro. Acabamento acetinado de alta durabilidade.",
+          "category": "microcimento",
+          "image_url": "https://images.unsplash.com/photo-1770086962001-3da4f60e7db5?w=800",
+          "location": "Lisboa, Portugal",
+          "year": 2024,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.633217Z"
+        },
+        {
+          "id": "4eb19fc2-2a41-4f6e-8b9f-55f4b99388b1",
+          "title": "Edif\u00edcio Residencial no Porto",
+          "description": "Reabilita\u00e7\u00e3o de fachada com sistema ETICS. 12 apartamentos, 2000m\u00b2 de \u00e1rea intervencionada.",
+          "category": "capoto",
+          "image_url": "https://images.unsplash.com/photo-1702392183172-17fdef8002b4?w=800",
+          "location": "Porto, Portugal",
+          "year": 2023,
+          "featured": true,
+          "created_at": "2026-02-17T01:10:33.633228Z"
+        }
+      ]
+    },
+    {
+      "test_name": "Get Specific Project",
+      "method": "GET",
+      "endpoint": "portfolio/52a25db1-bd29-4d0d-992f-5b05f37a1a88",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "timestamp": "2026-02-17T01:12:50.224291",
+      "response_data": {
+        "id": "52a25db1-bd29-4d0d-992f-5b05f37a1a88",
+        "title": "Moradia Moderna em Cascais",
+        "description": "Aplica\u00e7\u00e3o de sistema ETICS completo com acabamento em reboco silicone branco. Melhoria de efici\u00eancia energ\u00e9tica em 40%.",
+        "category": "capoto",
+        "image_url": "https://images.unsplash.com/photo-1770163821346-b7f07e59c98b?w=800",
+        "location": "Cascais, Portugal",
+        "year": 2024,
+        "featured": true,
+        "created_at": "2026-02-17T01:10:33.632321Z"
+      }
+    },
+    {
+      "test_name": "Get Non-existent Project",
+      "method": "GET",
+      "endpoint": "portfolio/non-existent-id",
+      "expected_status": 404,
+      "actual_status": 404,
+      "success": true,
+      "timestamp": "2026-02-17T01:12:50.390804",
+      "response_data": {
+        "detail": "Projeto n\u00e3o encontrado"
+      }
+    },
+    {
+      "test_name": "Submit Valid Contact",
+      "method": "POST",
+      "endpoint": "contact",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "timestamp": "2026-02-17T01:12:50.619487",
+      "response_data": {
+        "id": "b6ef873e-d65e-419e-bb6d-bde2182810ff",
+        "name": "Jo\u00e3o Silva",
+        "email": "joao.silva@email.com",
+        "phone": "912345678",
+        "service_type": "capoto",
+        "message": "Gostaria de um or\u00e7amento para isolamento t\u00e9rmico da minha moradia em Lisboa.",
+        "created_at": "2026-02-17T01:12:50.551227Z",
+        "status": "pending"
+      }
+    },
+    {
+      "test_name": "Submit Invalid Contact",
+      "method": "POST",
+      "endpoint": "contact",
+      "expected_status": 422,
+      "actual_status": 422,
+      "success": true,
+      "timestamp": "2026-02-17T01:12:50.807543",
+      "response_data": {
+        "detail": [
+          {
+            "type": "value_error",
+            "loc": [
+              "body",
+              "email"
+            ],
+            "msg": "value is not a valid email address: An email address must have an @-sign.",
+            "input": "invalid-email",
+            "ctx": {
+              "reason": "An email address must have an @-sign."
+            }
+          },
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "phone"
+            ],
+            "msg": "Field required",
+            "input": {
+              "name": "Test",
+              "email": "invalid-email"
+            },
+            "url": "https://errors.pydantic.dev/2.12/v/missing"
+          },
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "service_type"
+            ],
+            "msg": "Field required",
+            "input": {
+              "name": "Test",
+              "email": "invalid-email"
+            },
+            "url": "https://errors.pydantic.dev/2.12/v/missing"
+          },
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "message"
+            ],
+            "msg": "Field required",
+            "input": {
+              "name": "Test",
+              "email": "invalid-email"
+            },
+            "url": "https://errors.pydantic.dev/2.12/v/missing"
+          }
+        ]
+      }
+    },
+    {
+      "test_name": "Get All Contacts",
+      "method": "GET",
+      "endpoint": "contact",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "timestamp": "2026-02-17T01:12:50.958247",
+      "response_data": [
+        {
+          "id": "b6ef873e-d65e-419e-bb6d-bde2182810ff",
+          "name": "Jo\u00e3o Silva",
+          "email": "joao.silva@email.com",
+          "phone": "912345678",
+          "service_type": "capoto",
+          "message": "Gostaria de um or\u00e7amento para isolamento t\u00e9rmico da minha moradia em Lisboa.",
+          "created_at": "2026-02-17T01:12:50.551227Z",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "test_name": "Invalid Endpoint",
+      "method": "GET",
+      "endpoint": "invalid-endpoint",
+      "expected_status": 404,
+      "actual_status": 404,
+      "success": true,
+      "timestamp": "2026-02-17T01:12:51.277870",
+      "response_data": {
+        "detail": "Not Found"
+      }
+    },
+    {
+      "test_name": "Contact with Long Message",
+      "method": "POST",
+      "endpoint": "contact",
+      "expected_status": 422,
+      "actual_status": 422,
+      "success": true,
+      "timestamp": "2026-02-17T01:12:51.514079",
+      "response_data": {
+        "detail": [
+          {
+            "type": "string_too_long",
+            "loc": [
+              "body",
+              "message"
+            ],
+            "msg": "String should have at most 2000 characters",
+            "input": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "ctx": {
+              "max_length": 2000
+            },
+            "url": "https://errors.pydantic.dev/2.12/v/string_too_long"
+          }
+        ]
+      }
+    },
+    {
+      "test_name": "Contact with Short Message",
+      "method": "POST",
+      "endpoint": "contact",
+      "expected_status": 422,
+      "actual_status": 422,
+      "success": true,
+      "timestamp": "2026-02-17T01:12:51.711086",
+      "response_data": {
+        "detail": [
+          {
+            "type": "string_too_short",
+            "loc": [
+              "body",
+              "message"
+            ],
+            "msg": "String should have at least 10 characters",
+            "input": "Hi",
+            "ctx": {
+              "min_length": 10
+            },
+            "url": "https://errors.pydantic.dev/2.12/v/string_too_short"
+          }
+        ]
+      }
+    }
+  ]
+}
