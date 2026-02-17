@@ -65,14 +65,14 @@ const Navbar = ({ activeSection }) => {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
                 data-testid={`nav-${link.href.replace('#', '')}`}
-                className={`text-sm font-medium uppercase tracking-wider transition-colors hover:text-[#C8553D] ${
+                className={`text-sm font-medium uppercase tracking-wider transition-colors hover:text-[#C8553D] whitespace-nowrap ${
                   isScrolled ? 'text-[#1A1A1A]' : 'text-white'
                 }`}
               >
@@ -84,7 +84,7 @@ const Navbar = ({ activeSection }) => {
           {/* Mobile Menu Button */}
           <button
             data-testid="mobile-menu-btn"
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <Menu className={`w-6 h-6 ${isScrolled ? 'text-[#1A1A1A]' : 'text-white'}`} />
@@ -94,7 +94,7 @@ const Navbar = ({ activeSection }) => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-[#E5E0D8] shadow-lg">
+        <div className="lg:hidden bg-white border-t border-[#E5E0D8] shadow-lg">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) => (
               <a
