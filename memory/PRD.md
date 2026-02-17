@@ -6,6 +6,9 @@ Site institucional/corporativo para empresa de Capoto e Microcimento em Portugal
 ## Data de Criação
 Janeiro 2026
 
+## Última Atualização
+Janeiro 2026 - Adicionada calculadora de orçamento e novas imagens
+
 ## Problema Original
 Criar um site completo para a empresa AUREON especializada em:
 - Capoto / ETICS (Sistema de Isolamento Térmico pelo Exterior)
@@ -22,6 +25,7 @@ Criar um site completo para a empresa AUREON especializada em:
 - [x] Hero Section com CTA "Pedir Orçamento"
 - [x] Seção Sobre com estatísticas da empresa
 - [x] Serviços em Bento Grid (Capoto, Microcimento, Reabilitação, Consultoria)
+- [x] **NOVO: Calculadora de Orçamento** - Estimativa instantânea por m²
 - [x] Portfólio com filtros por categoria e lightbox
 - [x] Área Técnica com accordions (Vantagens, Processo, Normas, Especificações)
 - [x] Formulário de Contacto/Orçamento funcional
@@ -29,6 +33,18 @@ Criar um site completo para a empresa AUREON especializada em:
 - [x] Footer com links e informações
 - [x] Navegação suave entre seções
 - [x] Design responsivo
+- [x] **NOVO: Imagens específicas** de Capoto e Microcimento
+
+## Calculadora de Orçamento (Nova Funcionalidade)
+- **Capoto/ETICS**: €45-65/m² base + acabamentos
+  - Acrílico: sem custo adicional
+  - Silicone: +€8-12/m²
+  - Mineral: +€5-8/m²
+- **Microcimento**: €55-85/m² base + acabamentos
+  - Mate: sem custo adicional
+  - Acetinado: +€5-10/m²
+  - Brilhante: +€10-15/m²
+- Multiplicadores de complexidade: Simples (-10%), Normal (base), Complexo (+20%)
 
 ## Tech Stack
 - **Frontend**: React 19, Tailwind CSS, Lucide Icons, Sonner (toasts)
@@ -50,11 +66,11 @@ Criar um site completo para a empresa AUREON especializada em:
 | /api/seed-portfolio | POST | Popular dados iniciais |
 
 ## O Que Foi Implementado
-- **Jan 2026**: MVP completo
-  - Site single-page com 6 seções principais
-  - Backend com APIs de contacto e portfólio
-  - 6 projetos de portfólio seedados
-  - Todos os testes passaram (100% backend e frontend)
+- **Jan 2026 - MVP**: Site single-page com 6 seções principais
+- **Jan 2026 - v1.1**: Calculadora de orçamento por m²
+- **Jan 2026 - v1.2**: Imagens específicas de Capoto e Microcimento
+  - Capoto: edifícios com isolamento EPS, andaimes, trabalhadores
+  - Microcimento: interiores modernos, casa de banho, pavimentos
 
 ## Backlog / Melhorias Futuras
 ### P0 (Crítico)
@@ -67,9 +83,9 @@ Criar um site completo para a empresa AUREON especializada em:
 
 ### P2 (Média Prioridade)
 - [ ] Blog/Artigos técnicos
-- [ ] Calculadora de orçamento estimado
 - [ ] Integração com CRM
 - [ ] Multi-idioma (PT/EN/ES)
+- [ ] Galeria before/after de projetos
 
 ### P3 (Baixa Prioridade)
 - [ ] Depoimentos de clientes
@@ -84,7 +100,8 @@ Criar um site completo para a empresa AUREON especializada em:
 4. SEO optimization
 
 ## Métricas de Sucesso
-- Taxa de conversão de visitante para lead (formulário)
+- Taxa de conversão de visitante para lead (formulário + calculadora)
 - Tempo médio na página
 - Cliques no WhatsApp
+- Uso da calculadora de orçamento
 - Projetos do portfólio mais visualizados
