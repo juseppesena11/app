@@ -1248,6 +1248,7 @@ function App() {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
+      <BudgetCalculator />
       <PortfolioSection 
         projects={projects} 
         onProjectClick={setSelectedProject}
