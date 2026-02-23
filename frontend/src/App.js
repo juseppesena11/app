@@ -573,7 +573,7 @@ const BudgetCalculator = () => {
           </div>
 
           {/* Calculator Card */}
-          <div className="bg-white p-8">
+          <div className="bg-white p-8 max-h-[80vh] overflow-y-auto">
             {!estimate ? (
               <>
                 <h3 className="text-xl font-bold text-[#1A1A1A] mb-6 flex items-center gap-2">
@@ -582,47 +582,85 @@ const BudgetCalculator = () => {
                 </h3>
 
                 <div className="space-y-6">
-                  {/* Service Type */}
+                  {/* Service Type Selection */}
                   <div>
                     <label className="block text-sm font-medium text-[#1A1A1A] mb-3">
                       Tipo de Serviço
                     </label>
-                    <div className="grid grid-cols-2 gap-4">
-                      <button
-                        type="button"
-                        data-testid="calc-service-capoto"
-                        onClick={() => { setServiceType('capoto'); setFinishType(''); }}
-                        className={`p-4 border-2 text-left transition-all ${
-                          serviceType === 'capoto' 
-                            ? 'border-[#C8553D] bg-[#C8553D]/5' 
-                            : 'border-[#E5E0D8] hover:border-[#C8553D]/50'
-                        }`}
-                      >
-                        <ThermometerSun className={`w-6 h-6 mb-2 ${serviceType === 'capoto' ? 'text-[#C8553D]' : 'text-[#8C8C8C]'}`} />
-                        <p className="font-bold text-[#1A1A1A]">Capoto / ETICS</p>
-                        <p className="text-xs text-[#8C8C8C]">Isolamento térmico</p>
-                      </button>
-                      <button
-                        type="button"
-                        data-testid="calc-service-microcimento"
-                        onClick={() => { setServiceType('microcimento'); setFinishType(''); }}
-                        className={`p-4 border-2 text-left transition-all ${
-                          serviceType === 'microcimento' 
-                            ? 'border-[#C8553D] bg-[#C8553D]/5' 
-                            : 'border-[#E5E0D8] hover:border-[#C8553D]/50'
-                        }`}
-                      >
-                        <Paintbrush className={`w-6 h-6 mb-2 ${serviceType === 'microcimento' ? 'text-[#C8553D]' : 'text-[#8C8C8C]'}`} />
-                        <p className="font-bold text-[#1A1A1A]">Microcimento</p>
-                        <p className="text-xs text-[#8C8C8C]">Acabamento decorativo</p>
-                      </button>
+                    <div className="grid grid-cols-2 gap-3">
+                      {Object.entries(services).map(([key, service]) => (
+                        <button
+                          key={key}
+                          type="button"
+                          data-testid={`calc-service-${key}`}
+                          onClick={() => { 
+                            setServiceType(key); 
+                            setFinishType(''); 
+                            setBathroomType('');
+                            setIncludeHidrofugante(false);
+                          }}
+                          className={`p-3 border-2 text-left transition-all ${
+                            serviceType === key 
+                              ? 'border-[#C8553D] bg-[#C8553D]/5' 
+                              : 'border-[#E5E0D8] hover:border-[#C8553D]/50'
+                          }`}
+                        >
+                          {getServiceIcon(service.icon, serviceType === key)}
+                          <p className="font-bold text-[#1A1A1A] text-sm">{service.name}</p>
+                          <p className="text-xs text-[#8C8C8C]">{service.description}</p>
+                        </button>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Area */}
+                  {/* Service Description */}
+                  {selectedService && (selectedService.detailedDescription || selectedService.hasSubTypes) && (
+                    <div className="bg-[#F9F8F6] p-4 border-l-4 border-[#C8553D]">
+                      <p className="text-sm text-[#8C8C8C]">
+                        {selectedService.hasSubTypes 
+                          ? 'Selecione o tipo de remodelação abaixo para ver os detalhes.'
+                          : selectedService.detailedDescription}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Bathroom Sub-Types */}
+                  {selectedService?.hasSubTypes && (
+                    <div>
+                      <label className="block text-sm font-medium text-[#1A1A1A] mb-3">
+                        Tipo de Remodelação
+                      </label>
+                      <div className="grid grid-cols-2 gap-3">
+                        {Object.entries(selectedService.subTypes).map(([key, subType]) => (
+                          <button
+                            key={key}
+                            type="button"
+                            data-testid={`calc-bathroom-${key}`}
+                            onClick={() => setBathroomType(key)}
+                            className={`p-4 border-2 text-left transition-all ${
+                              bathroomType === key 
+                                ? 'border-[#C8553D] bg-[#C8553D]/5' 
+                                : 'border-[#E5E0D8] hover:border-[#C8553D]/50'
+                            }`}
+                          >
+                            <p className="font-bold text-[#1A1A1A]">{subType.name}</p>
+                            <p className="text-xs text-[#8C8C8C] mb-2">{subType.description}</p>
+                            <p className="text-sm font-semibold text-[#C8553D]">€{subType.base.min}-{subType.base.max}/m²</p>
+                          </button>
+                        ))}
+                      </div>
+                      {bathroomType && (
+                        <div className="mt-3 bg-[#F9F8F6] p-3 text-xs text-[#8C8C8C]">
+                          {selectedService.subTypes[bathroomType].detailedDescription}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Area Input */}
                   <div>
                     <label className="block text-sm font-medium text-[#1A1A1A] mb-2">
-                      Área Total (m²)
+                      Área Total de Parede/Superfície (m²)
                     </label>
                     <div className="relative">
                       <input
@@ -636,126 +674,91 @@ const BudgetCalculator = () => {
                       />
                       <Ruler className="absolute left-0 top-1/2 -translate-y-1/2 w-5 h-5 text-[#8C8C8C]" />
                     </div>
+                    <p className="text-xs text-[#8C8C8C] mt-1">
+                      {serviceType === 'remodelacao_wc' 
+                        ? 'Dica: WC de 2m×3m×2.35m altura ≈ 29.5m² de parede'
+                        : 'Insira a área total a intervencionar'}
+                    </p>
                   </div>
 
-                  {/* Finish Type */}
-                  {serviceType && (
+                  {/* Finish Type for Capoto/Microcimento */}
+                  {selectedService?.hasFinishes && (
                     <div>
                       <label className="block text-sm font-medium text-[#1A1A1A] mb-3">
                         Tipo de Acabamento
                       </label>
                       <div className="grid grid-cols-3 gap-3">
-                        {serviceType === 'capoto' ? (
-                          <>
-                            <button
-                              type="button"
-                              data-testid="calc-finish-acrilico"
-                              onClick={() => setFinishType('acrilico')}
-                              className={`p-3 border text-center text-sm transition-all ${
-                                finishType === 'acrilico' 
-                                  ? 'border-[#C8553D] bg-[#C8553D] text-white' 
-                                  : 'border-[#E5E0D8] hover:border-[#C8553D]'
-                              }`}
-                            >
-                              Acrílico
-                            </button>
-                            <button
-                              type="button"
-                              data-testid="calc-finish-silicone"
-                              onClick={() => setFinishType('silicone')}
-                              className={`p-3 border text-center text-sm transition-all ${
-                                finishType === 'silicone' 
-                                  ? 'border-[#C8553D] bg-[#C8553D] text-white' 
-                                  : 'border-[#E5E0D8] hover:border-[#C8553D]'
-                              }`}
-                            >
-                              Silicone
-                            </button>
-                            <button
-                              type="button"
-                              data-testid="calc-finish-mineral"
-                              onClick={() => setFinishType('mineral')}
-                              className={`p-3 border text-center text-sm transition-all ${
-                                finishType === 'mineral' 
-                                  ? 'border-[#C8553D] bg-[#C8553D] text-white' 
-                                  : 'border-[#E5E0D8] hover:border-[#C8553D]'
-                              }`}
-                            >
-                              Mineral
-                            </button>
-                          </>
-                        ) : (
-                          <>
-                            <button
-                              type="button"
-                              data-testid="calc-finish-mate"
-                              onClick={() => setFinishType('mate')}
-                              className={`p-3 border text-center text-sm transition-all ${
-                                finishType === 'mate' 
-                                  ? 'border-[#C8553D] bg-[#C8553D] text-white' 
-                                  : 'border-[#E5E0D8] hover:border-[#C8553D]'
-                              }`}
-                            >
-                              Mate
-                            </button>
-                            <button
-                              type="button"
-                              data-testid="calc-finish-acetinado"
-                              onClick={() => setFinishType('acetinado')}
-                              className={`p-3 border text-center text-sm transition-all ${
-                                finishType === 'acetinado' 
-                                  ? 'border-[#C8553D] bg-[#C8553D] text-white' 
-                                  : 'border-[#E5E0D8] hover:border-[#C8553D]'
-                              }`}
-                            >
-                              Acetinado
-                            </button>
-                            <button
-                              type="button"
-                              data-testid="calc-finish-brilhante"
-                              onClick={() => setFinishType('brilhante')}
-                              className={`p-3 border text-center text-sm transition-all ${
-                                finishType === 'brilhante' 
-                                  ? 'border-[#C8553D] bg-[#C8553D] text-white' 
-                                  : 'border-[#E5E0D8] hover:border-[#C8553D]'
-                              }`}
-                            >
-                              Brilhante
-                            </button>
-                          </>
-                        )}
+                        {Object.entries(selectedService.finishes).map(([key, finish]) => (
+                          <button
+                            key={key}
+                            type="button"
+                            data-testid={`calc-finish-${key}`}
+                            onClick={() => setFinishType(key)}
+                            className={`p-3 border text-center text-sm transition-all ${
+                              finishType === key 
+                                ? 'border-[#C8553D] bg-[#C8553D] text-white' 
+                                : 'border-[#E5E0D8] hover:border-[#C8553D]'
+                            }`}
+                          >
+                            {finish.name}
+                          </button>
+                        ))}
                       </div>
                     </div>
                   )}
 
-                  {/* Complexity */}
-                  <div>
-                    <label className="block text-sm font-medium text-[#1A1A1A] mb-3">
-                      Complexidade do Projeto
-                    </label>
-                    <div className="grid grid-cols-3 gap-3">
-                      {[
-                        { id: 'simples', label: 'Simples', desc: '-10%' },
-                        { id: 'normal', label: 'Normal', desc: 'Base' },
-                        { id: 'complexo', label: 'Complexo', desc: '+20%' }
-                      ].map((opt) => (
-                        <button
-                          key={opt.id}
-                          type="button"
-                          data-testid={`calc-complexity-${opt.id}`}
-                          onClick={() => setComplexity(opt.id)}
-                          className={`p-3 border text-center transition-all ${
-                            complexity === opt.id 
-                              ? 'border-[#C8553D] bg-[#C8553D] text-white' 
-                              : 'border-[#E5E0D8] hover:border-[#C8553D]'
-                          }`}
-                        >
-                          <p className="text-sm font-medium">{opt.label}</p>
-                          <p className={`text-xs ${complexity === opt.id ? 'text-white/70' : 'text-[#8C8C8C]'}`}>{opt.desc}</p>
-                        </button>
-                      ))}
+                  {/* Hidrofugante Option for Roof Cleaning */}
+                  {selectedService?.hasHidrofugante && (
+                    <div className="bg-[#F9F8F6] p-4">
+                      <label className="flex items-start gap-3 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          data-testid="calc-hidrofugante"
+                          checked={includeHidrofugante}
+                          onChange={(e) => setIncludeHidrofugante(e.target.checked)}
+                          className="mt-1 w-5 h-5 accent-[#C8553D]"
+                        />
+                        <div>
+                          <p className="font-bold text-[#1A1A1A]">Adicionar Hidrofugante</p>
+                          <p className="text-xs text-[#8C8C8C]">
+                            Tratamento impermeabilizante após limpeza (+€{selectedService.hidrofugantePrice.min}-{selectedService.hidrofugantePrice.max}/m²)
+                          </p>
+                          <p className="text-xs text-[#C8553D] mt-1">Recomendado para proteção prolongada</p>
+                        </div>
+                      </label>
                     </div>
-                  </div>
+                  )}
+
+                  {/* Complexity - only for applicable services */}
+                  {selectedService?.useComplexity && (
+                    <div>
+                      <label className="block text-sm font-medium text-[#1A1A1A] mb-3">
+                        Complexidade do Projeto
+                      </label>
+                      <div className="grid grid-cols-3 gap-3">
+                        {[
+                          { id: 'simples', label: 'Simples', desc: '-10%' },
+                          { id: 'normal', label: 'Normal', desc: 'Base' },
+                          { id: 'complexo', label: 'Complexo', desc: '+20%' }
+                        ].map((opt) => (
+                          <button
+                            key={opt.id}
+                            type="button"
+                            data-testid={`calc-complexity-${opt.id}`}
+                            onClick={() => setComplexity(opt.id)}
+                            className={`p-3 border text-center transition-all ${
+                              complexity === opt.id 
+                                ? 'border-[#C8553D] bg-[#C8553D] text-white' 
+                                : 'border-[#E5E0D8] hover:border-[#C8553D]'
+                            }`}
+                          >
+                            <p className="text-sm font-medium">{opt.label}</p>
+                            <p className={`text-xs ${complexity === opt.id ? 'text-white/70' : 'text-[#8C8C8C]'}`}>{opt.desc}</p>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   {/* Calculate Button */}
                   <button
