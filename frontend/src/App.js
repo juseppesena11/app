@@ -342,25 +342,87 @@ const BudgetCalculator = () => {
   const [area, setArea] = useState('');
   const [finishType, setFinishType] = useState('');
   const [complexity, setComplexity] = useState('normal');
+  const [includeHidrofugante, setIncludeHidrofugante] = useState(false);
+  const [bathroomType, setBathroomType] = useState('');
   const [estimate, setEstimate] = useState(null);
 
-  // Pricing per m² (in euros) - ranges
-  const pricing = {
+  // Service definitions with pricing
+  const services = {
     capoto: {
+      name: 'Capoto / ETICS',
+      description: 'Isolamento térmico pelo exterior',
+      icon: 'thermometer',
       base: { min: 45, max: 65 },
+      hasFinishes: true,
       finishes: {
-        acrilico: { min: 0, max: 0 },
-        silicone: { min: 8, max: 12 },
-        mineral: { min: 5, max: 8 }
-      }
+        acrilico: { name: 'Acrílico', min: 0, max: 0 },
+        silicone: { name: 'Silicone', min: 8, max: 12 },
+        mineral: { name: 'Mineral', min: 5, max: 8 }
+      },
+      useComplexity: true
     },
     microcimento: {
+      name: 'Microcimento',
+      description: 'Acabamento decorativo contínuo',
+      icon: 'paintbrush',
       base: { min: 55, max: 85 },
+      hasFinishes: true,
       finishes: {
-        mate: { min: 0, max: 0 },
-        acetinado: { min: 5, max: 10 },
-        brilhante: { min: 10, max: 15 }
-      }
+        mate: { name: 'Mate', min: 0, max: 0 },
+        acetinado: { name: 'Acetinado', min: 5, max: 10 },
+        brilhante: { name: 'Brilhante', min: 10, max: 15 }
+      },
+      useComplexity: true
+    },
+    pintura_interior: {
+      name: 'Pintura Interior',
+      description: 'Acabamento profissional com tintas premium',
+      icon: 'paint',
+      base: { min: 7, max: 15 },
+      hasFinishes: false,
+      useComplexity: true,
+      detailedDescription: 'Acabamento profissional com tintas de qualidade premium. Preparação adequada de superfícies, primário + 2 demãos. Resultado impecável e duradouro.'
+    },
+    pintura_exterior: {
+      name: 'Pintura Exterior',
+      description: 'Proteção total contra intempéries',
+      icon: 'paint',
+      base: { min: 9, max: 16 },
+      hasFinishes: false,
+      useComplexity: true,
+      detailedDescription: 'Proteção completa contra intempéries com tintas de alta performance. Inclui limpeza, reparação de fissuras, primário + 2 demãos. Resistente a UV e humidade.'
+    },
+    limpeza_telhados: {
+      name: 'Limpeza de Telhados',
+      description: 'Remoção profunda de musgos e líquenes',
+      icon: 'roof',
+      base: { min: 5, max: 12 },
+      hasFinishes: false,
+      hasHidrofugante: true,
+      hidrofugantePrice: { min: 5, max: 12 },
+      useComplexity: false,
+      detailedDescription: 'Limpeza profissional profunda removendo musgos, líquenes e sujidade. Opção de tratamento hidrofugante para proteção prolongada contra infiltrações e degradação.'
+    },
+    remodelacao_wc: {
+      name: 'Remodelação Casa de Banho',
+      description: 'Renovação completa ou estética',
+      icon: 'bathroom',
+      hasSubTypes: true,
+      subTypes: {
+        completa: {
+          name: 'Completa',
+          description: 'Inclui substituição de canalização',
+          base: { min: 235, max: 375 },
+          detailedDescription: 'Renovação total incluindo substituição de canalização (água quente/fria), esgotos, pavimento, paredes, louças sanitárias e acabamentos. Com projeto técnico e garantia de qualidade.'
+        },
+        estetica: {
+          name: 'Estética',
+          description: 'Mantém canalização existente',
+          base: { min: 165, max: 275 },
+          detailedDescription: 'Renovação visual com novo pavimento, revestimento de paredes, louças sanitárias e acabamentos. Mantém canalização existente. Transformação rápida e eficiente.'
+        }
+      },
+      useComplexity: false
     }
   };
 
@@ -370,25 +432,76 @@ const BudgetCalculator = () => {
     complexo: 1.2
   };
 
+  const getServiceIcon = (iconType, isSelected) => {
+    const className = `w-6 h-6 mb-2 ${isSelected ? 'text-[#C8553D]' : 'text-[#8C8C8C]'}`;
+    switch (iconType) {
+      case 'thermometer': return <ThermometerSun className={className} />;
+      case 'paintbrush': return <Paintbrush className={className} />;
+      case 'paint': return <Paintbrush className={className} />;
+      case 'roof': return <Building2 className={className} />;
+      case 'bathroom': return <Shield className={className} />;
+      default: return <CheckCircle2 className={className} />;
+    }
+  };
+
   const calculateEstimate = () => {
-    if (!serviceType || !area || !finishType || parseFloat(area) <= 0) {
+    const areaNum = parseFloat(area);
+    
+    if (!serviceType || !area || areaNum <= 0) {
       toast.error('Por favor, preencha todos os campos corretamente.');
       return;
     }
 
-    const areaNum = parseFloat(area);
-    const service = pricing[serviceType];
-    const finish = service.finishes[finishType];
-    const multiplier = complexityMultiplier[complexity];
+    const service = services[serviceType];
+    let minPrice = 0;
+    let maxPrice = 0;
+    let serviceName = service.name;
 
-    const minPrice = (service.base.min + finish.min) * areaNum * multiplier;
-    const maxPrice = (service.base.max + finish.max) * areaNum * multiplier;
+    // Handle bathroom remodeling
+    if (service.hasSubTypes) {
+      if (!bathroomType) {
+        toast.error('Por favor, selecione o tipo de remodelação.');
+        return;
+      }
+      const subType = service.subTypes[bathroomType];
+      minPrice = subType.base.min * areaNum;
+      maxPrice = subType.base.max * areaNum;
+      serviceName = `${service.name} - ${subType.name}`;
+    } else {
+      // Standard service calculation
+      minPrice = service.base.min * areaNum;
+      maxPrice = service.base.max * areaNum;
+
+      // Add finish pricing if applicable
+      if (service.hasFinishes && finishType) {
+        const finish = service.finishes[finishType];
+        minPrice += finish.min * areaNum;
+        maxPrice += finish.max * areaNum;
+      } else if (service.hasFinishes && !finishType) {
+        toast.error('Por favor, selecione o tipo de acabamento.');
+        return;
+      }
+
+      // Add hidrofugante if selected
+      if (service.hasHidrofugante && includeHidrofugante) {
+        minPrice += service.hidrofugantePrice.min * areaNum;
+        maxPrice += service.hidrofugantePrice.max * areaNum;
+        serviceName += ' + Hidrofugante';
+      }
+
+      // Apply complexity multiplier if applicable
+      if (service.useComplexity) {
+        const multiplier = complexityMultiplier[complexity];
+        minPrice *= multiplier;
+        maxPrice *= multiplier;
+      }
+    }
 
     setEstimate({
       min: Math.round(minPrice),
       max: Math.round(maxPrice),
       area: areaNum,
-      service: serviceType === 'capoto' ? 'Capoto / ETICS' : 'Microcimento'
+      service: serviceName
     });
   };
 
@@ -397,6 +510,8 @@ const BudgetCalculator = () => {
     setArea('');
     setFinishType('');
     setComplexity('normal');
+    setIncludeHidrofugante(false);
+    setBathroomType('');
     setEstimate(null);
   };
 
@@ -406,6 +521,8 @@ const BudgetCalculator = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const selectedService = serviceType ? services[serviceType] : null;
 
   return (
     <section id="calculadora" data-testid="calculator-section" className="py-24 bg-[#1A1A1A]">
