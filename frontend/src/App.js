@@ -1071,7 +1071,7 @@ const ContactSection = () => {
   };
 
   const contactInfo = [
-    { icon: Phone, label: "Telefone", value: "+351 912 345 678" },
+    { icon: Phone, label: "Telefone", value: "+351 925 608 516" },
     { icon: Mail, label: "Email", value: "info@aureon.pt" },
     { icon: MapPin, label: "Localização", value: "Lisboa, Portugal" },
     { icon: Clock, label: "Horário", value: "Seg-Sex: 9h-18h" }
