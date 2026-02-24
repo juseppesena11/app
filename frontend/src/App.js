@@ -1072,7 +1072,7 @@ const ContactSection = () => {
 
   const contactInfo = [
     { icon: Phone, label: "Telefone", value: "+351 925 608 516" },
-    { icon: Mail, label: "Email", value: "info@aureon.pt" },
+    { icon: Mail, label: "Email", value: "Juseppesena11@gmail.com" },
     { icon: MapPin, label: "Localização", value: "Lisboa, Portugal" },
     { icon: Clock, label: "Horário", value: "Seg-Sex: 9h-18h" }
   ];
