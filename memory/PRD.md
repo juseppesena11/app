@@ -1,19 +1,21 @@
 # AUREON - PRD (Product Requirements Document)
 
 ## Visão Geral
-Site institucional/corporativo para empresa de Capoto e Microcimento em Portugal.
+Site institucional/corporativo para empresa de Capoto, Microcimento e serviços de construção em Portugal.
 
 ## Data de Criação
 Janeiro 2026
 
 ## Última Atualização
-Janeiro 2026 - Adicionada calculadora de orçamento e novas imagens
+Janeiro 2026 - Fotos reais de trabalhos executados + Calculadora expandida com 7 serviços
 
 ## Problema Original
 Criar um site completo para a empresa AUREON especializada em:
 - Capoto / ETICS (Sistema de Isolamento Térmico pelo Exterior)
 - Microcimento (Acabamentos Decorativos)
-- Serviços de construção civil em Portugal
+- Pintura Interior e Exterior
+- Limpeza de Telhados
+- Remodelação de Casas de Banho
 
 ## User Personas
 1. **Proprietários de Imóveis**: Buscam melhorar eficiência energética e estética da casa
@@ -22,86 +24,59 @@ Criar um site completo para a empresa AUREON especializada em:
 4. **Clientes Comerciais**: Restaurantes, lojas, escritórios
 
 ## Requisitos Core (Implementados)
-- [x] Hero Section com CTA "Pedir Orçamento"
+- [x] Hero Section com foto real de obra + CTA "Pedir Orçamento"
 - [x] Seção Sobre com estatísticas da empresa
-- [x] Serviços em Bento Grid (Capoto, Microcimento, Reabilitação, Consultoria)
-- [x] **NOVO: Calculadora de Orçamento** - Estimativa instantânea por m²
-- [x] Portfólio com filtros por categoria e lightbox
-- [x] Área Técnica com accordions (Vantagens, Processo, Normas, Especificações)
+- [x] Serviços em Bento Grid (4 serviços principais com fotos reais)
+- [x] **Calculadora de Orçamento Expandida** - 7 serviços
+- [x] Portfólio com fotos reais de trabalhos executados
+- [x] Área Técnica com accordions
 - [x] Formulário de Contacto/Orçamento funcional
 - [x] Integração WhatsApp (botão flutuante)
 - [x] Footer com links e informações
-- [x] Navegação suave entre seções
 - [x] Design responsivo
-- [x] **NOVO: Imagens específicas** de Capoto e Microcimento
 
-## Calculadora de Orçamento (Nova Funcionalidade)
-- **Capoto/ETICS**: €45-65/m² base + acabamentos
-  - Acrílico: sem custo adicional
-  - Silicone: +€8-12/m²
-  - Mineral: +€5-8/m²
-- **Microcimento**: €55-85/m² base + acabamentos
-  - Mate: sem custo adicional
-  - Acetinado: +€5-10/m²
-  - Brilhante: +€10-15/m²
-- Multiplicadores de complexidade: Simples (-10%), Normal (base), Complexo (+20%)
+## Calculadora de Orçamento (7 Serviços)
+| Serviço | Preço Base | Opções |
+|---------|------------|--------|
+| Capoto / ETICS | €45-65/m² | Acrílico, Silicone (+€8-12), Mineral (+€5-8) |
+| Microcimento | €55-85/m² | Mate, Acetinado (+€5-10), Brilhante (+€10-15) |
+| Pintura Interior | €7-15/m² | Complexidade: -10% a +20% |
+| Pintura Exterior | €9-16/m² | Complexidade: -10% a +20% |
+| Limpeza Telhados | €5-12/m² | Hidrofugante opcional (+€5-12/m²) |
+| WC Completa | €235-375/m² | Inclui canalização |
+| WC Estética | €165-275/m² | Mantém canalização |
+
+## Fotos Reais Adicionadas
+1. **IMG_4369** - Obra de Capoto em moradia (Hero, Sobre, Serviços, Portfólio)
+2. **IMG_3102** - Microcimento em Casa de Banho
+3. **IMG_8821** - Casa de Banho Remodelada Moderna
+4. **IMG_1482** - Limpeza de Telhado
+5. **aa16b504** - Casa de Banho Premium com LED
 
 ## Tech Stack
-- **Frontend**: React 19, Tailwind CSS, Lucide Icons, Sonner (toasts)
+- **Frontend**: React 19, Tailwind CSS, Lucide Icons, Sonner
 - **Backend**: FastAPI (Python), Motor (MongoDB async)
 - **Database**: MongoDB
-- **Estilo**: Corporativo/Profissional
-- **Cores**: Obsidian (#1A1A1A), Microcement Beige (#E5E0D8), Thermal Terracotta (#C8553D)
-- **Fontes**: Manrope (headings), DM Sans (body)
-
-## APIs Implementadas
-| Endpoint | Método | Descrição |
-|----------|--------|-----------|
-| /api/ | GET | Root message |
-| /api/health | GET | Health check |
-| /api/contact | POST | Criar pedido de contacto |
-| /api/contact | GET | Listar pedidos |
-| /api/portfolio | GET | Listar projetos (filtros: category, featured) |
-| /api/portfolio/{id} | GET | Detalhe do projeto |
-| /api/seed-portfolio | POST | Popular dados iniciais |
 
 ## O Que Foi Implementado
-- **Jan 2026 - MVP**: Site single-page com 6 seções principais
-- **Jan 2026 - v1.1**: Calculadora de orçamento por m²
-- **Jan 2026 - v1.2**: Imagens específicas de Capoto e Microcimento
-  - Capoto: edifícios com isolamento EPS, andaimes, trabalhadores
-  - Microcimento: interiores modernos, casa de banho, pavimentos
+- **Jan 2026 - MVP**: Site single-page completo
+- **Jan 2026 - v1.1**: Calculadora de orçamento (2 serviços)
+- **Jan 2026 - v1.2**: Imagens específicas Capoto/Microcimento
+- **Jan 2026 - v1.3**: Calculadora expandida (7 serviços)
+- **Jan 2026 - v1.4**: Fotos reais de trabalhos executados
 
-## Backlog / Melhorias Futuras
-### P0 (Crítico)
-- Nenhum item pendente
-
+## Backlog / Próximos Passos
 ### P1 (Alta Prioridade)
-- [ ] Integração com Google Maps real (substituir placeholder)
-- [ ] Dashboard admin para gerenciar pedidos de contacto
-- [ ] Sistema de upload de imagens para portfólio
+- [ ] Adicionar mais fotos reais ao portfólio
+- [ ] Dashboard admin para pedidos de contacto
+- [ ] Google Maps real na seção de contacto
 
 ### P2 (Média Prioridade)
-- [ ] Blog/Artigos técnicos
-- [ ] Integração com CRM
-- [ ] Multi-idioma (PT/EN/ES)
 - [ ] Galeria before/after de projetos
-
-### P3 (Baixa Prioridade)
-- [ ] Depoimentos de clientes
-- [ ] Vídeos de demonstração
-- [ ] FAQ expandido
-- [ ] Newsletter
-
-## Próximas Ações
-1. Substituir dados de contacto fictícios pelos reais
-2. Adicionar Google Maps real
-3. Configurar domínio personalizado
-4. SEO optimization
+- [ ] Blog/Artigos técnicos
+- [ ] Multi-idioma (PT/EN/ES)
 
 ## Métricas de Sucesso
-- Taxa de conversão de visitante para lead (formulário + calculadora)
-- Tempo médio na página
+- Taxa de conversão (formulário + calculadora)
 - Cliques no WhatsApp
-- Uso da calculadora de orçamento
-- Projetos do portfólio mais visualizados
+- Uso da calculadora de orçamento por serviço
