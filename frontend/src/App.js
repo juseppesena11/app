@@ -1277,7 +1277,7 @@ const Footer = () => {
 
 // WhatsApp Button
 const WhatsAppButton = () => {
-  const phoneNumber = "351912345678";
+  const phoneNumber = "351925608516";
   const message = "Olá! Gostaria de saber mais sobre os vossos serviços.";
   
   const handleClick = () => {
