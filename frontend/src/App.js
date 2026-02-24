@@ -251,7 +251,7 @@ const ServicesSection = () => {
       title: "Capoto / ETICS",
       subtitle: "Sistema de Isolamento Térmico pelo Exterior",
       description: "Aplicação profissional do sistema ETICS com placas de EPS, XPS ou lã mineral. Melhore a eficiência energética da sua casa em até 40%.",
-      image: "https://images.unsplash.com/photo-1589572394490-771aa22db633?auto=format&fit=crop&w=600&q=80",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/wihtnnfo_IMG_4369.jpeg",
       features: ["Isolamento Térmico", "Impermeabilização", "Acabamento Estético"],
       large: true
     },
@@ -260,26 +260,26 @@ const ServicesSection = () => {
       title: "Microcimento",
       subtitle: "Acabamentos Decorativos de Alta Performance",
       description: "Revestimento contínuo para pavimentos, paredes e mobiliário. Estética moderna com alta resistência e fácil manutenção.",
-      image: "https://images.unsplash.com/photo-1762803842055-de1e5fb14477?auto=format&fit=crop&w=600&q=80",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/hkb87782_IMG_3102.jpeg",
       features: ["Pavimentos", "Paredes", "Bancadas"],
       large: true
     },
     {
       id: "reabilitacao",
-      title: "Reabilitação de Fachadas",
-      subtitle: "Renovação Completa",
-      description: "Recuperação e melhoria de fachadas existentes com tratamento de fissuras e patologias.",
-      image: "https://images.unsplash.com/photo-1667893185343-9e869ae6e1bd?auto=format&fit=crop&w=400&q=80",
-      features: ["Diagnóstico", "Reparação", "Proteção"],
+      title: "Remodelação Casa de Banho",
+      subtitle: "Renovação Completa ou Estética",
+      description: "Transformação total do seu espaço de banho com acabamentos de qualidade premium e materiais duráveis.",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/x7j3tbgy_aa16b504-d5ef-40ae-bb80-558385f10c9b.jpeg",
+      features: ["Completa", "Estética", "Premium"],
       large: false
     },
     {
       id: "consultoria",
-      title: "Consultoria Técnica",
-      subtitle: "Apoio Especializado",
-      description: "Análise térmica, certificação energética e consultoria para projetos de eficiência energética.",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80",
-      features: ["Análise", "Projeto", "Certificação"],
+      title: "Limpeza de Telhados",
+      subtitle: "Manutenção e Proteção",
+      description: "Limpeza profissional com opção de tratamento hidrofugante para proteção duradoura.",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/osk22wm9_IMG_1482.jpeg",
+      features: ["Limpeza", "Hidrofugante", "Proteção"],
       large: false
     }
   ];
