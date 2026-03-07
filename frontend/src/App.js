@@ -165,17 +165,6 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <a
-            href="https://wa.me/message/IX2WE2EQUCMMP1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 text-sm font-bold hover:bg-[#128C7E] transition-colors"
-          >
-            <MessageCircle className="w-4 h-4" />
-            WhatsApp
-          </a>
-
           {/* Mobile Menu Button */}
           <button
             data-testid="mobile-menu-btn"
