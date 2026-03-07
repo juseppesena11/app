@@ -106,13 +106,14 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
   const navLinks = [
     { id: "home", label: "Home", icon: Home },
-    { id: "capoto", label: "Capoto (ETICS)", icon: ThermometerSun },
+    { id: "capoto", label: "Capoto", icon: ThermometerSun },
     { id: "microcimento", label: "Microcimento", icon: Paintbrush },
     { id: "remodelacoes", label: "Remodelações", icon: Hammer },
     { id: "portfolio", label: "Portfólio", icon: Image },
     { id: "precos", label: "Preços", icon: Euro },
     { id: "calculadora", label: "Orçamento", icon: Calculator },
     { id: "blog", label: "Blog", icon: FileText },
+    { id: "zonas", label: "Zonas", icon: MapPin },
     { id: "contacto", label: "Contacto", icon: MessageCircle }
   ];
 
