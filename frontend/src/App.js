@@ -1366,82 +1366,268 @@ const CalculadoraPage = () => {
   );
 };
 
-// ==================== BLOG PAGE ====================
-const BlogPage = () => {
+// ==================== BLOG PAGE - 20 ARTIGOS SEO ====================
+const BlogPage = ({ setCurrentPage }) => {
+  const [selectedCategory, setSelectedCategory] = useState('todos');
+  
   const articles = [
     {
       id: 1,
-      title: "Preço do Capoto por m² em Portugal - Guia Completo 2024",
-      excerpt: "Descubra quanto custa aplicar capoto na sua casa. Preços, materiais e fatores que influenciam o orçamento.",
+      title: "Quanto custa o capoto por m² em Lisboa e Setúbal",
+      excerpt: "Descubra os preços médios do capoto (ETICS) em Lisboa e Setúbal e peça o seu orçamento gratuito.",
       category: "Capoto",
+      keywords: "capoto Lisboa, capoto Setúbal, preço capoto m²",
       image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/wihtnnfo_IMG_4369.jpeg"
     },
     {
       id: 2,
-      title: "Microcimento ou Azulejo - Qual Escolher para a Casa de Banho?",
-      excerpt: "Comparamos as duas opções mais populares para revestir a sua casa de banho. Prós, contras e preços.",
+      title: "Microcimento ou azulejo: qual escolher para casa de banho",
+      excerpt: "Saiba qual é a melhor opção para paredes e pavimentos: microcimento ou azulejo em Lisboa e Setúbal.",
       category: "Microcimento",
+      keywords: "microcimento Lisboa, microcimento casa de banho, azulejo Lisboa",
       image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/hkb87782_IMG_3102.jpeg"
     },
     {
       id: 3,
-      title: "Quanto Custa Remodelar uma Casa de Banho em 2024?",
-      excerpt: "Guia completo com preços atualizados para remodelação de casas de banho em Portugal.",
+      title: "Remodelação de casas de banho em Lisboa e Setúbal",
+      excerpt: "Inspire-se com ideias e preços de remodelações de casas de banho. Orçamento gratuito.",
       category: "Remodelações",
+      keywords: "remodelação casa de banho Lisboa, remodelação casa de banho Setúbal",
       image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/x7j3tbgy_aa16b504-d5ef-40ae-bb80-558385f10c9b.jpeg"
     },
     {
       id: 4,
-      title: "Capoto Vale a Pena em Portugal? Análise Completa",
-      excerpt: "Analisamos se o investimento em isolamento térmico compensa no clima português.",
+      title: "Vantagens do capoto para isolamento térmico",
+      excerpt: "Conheça como o capoto (ETICS) aumenta o conforto e reduz energia em moradias e apartamentos.",
       category: "Capoto",
+      keywords: "capoto Lisboa, isolamento térmico exterior, capoto Setúbal",
       image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/wihtnnfo_IMG_4369.jpeg"
     },
     {
       id: 5,
-      title: "Como Escolher uma Empresa de Remodelações de Confiança",
-      excerpt: "Dicas essenciais para contratar profissionais qualificados e evitar problemas.",
-      category: "Dicas",
+      title: "Microcimento em pavimentos: moderno e resistente",
+      excerpt: "Descubra como aplicar microcimento em pavimentos de casas e apartamentos em Lisboa e Setúbal.",
+      category: "Microcimento",
+      keywords: "microcimento pavimento Lisboa, microcimento Setúbal",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/hkb87782_IMG_3102.jpeg"
+    },
+    {
+      id: 6,
+      title: "Como remodelar a sua cozinha gastando menos",
+      excerpt: "Dicas práticas para remodelar a cozinha em Lisboa e Setúbal sem gastar muito.",
+      category: "Remodelações",
+      keywords: "remodelação cozinha Lisboa, remodelação cozinha Setúbal",
       image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/98j577ho_IMG_8821.jpeg"
+    },
+    {
+      id: 7,
+      title: "Antes e depois: capoto aplicado em moradias",
+      excerpt: "Veja exemplos reais de aplicação de capoto em moradias de Lisboa e Setúbal.",
+      category: "Capoto",
+      keywords: "capoto moradia Lisboa, capoto Setúbal",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/wihtnnfo_IMG_4369.jpeg"
+    },
+    {
+      id: 8,
+      title: "Microcimento em escadas: aplicação e vantagens",
+      excerpt: "Saiba como aplicar microcimento em escadas e quais os benefícios em Lisboa e Setúbal.",
+      category: "Microcimento",
+      keywords: "microcimento escadas Lisboa, microcimento Setúbal",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/hkb87782_IMG_3102.jpeg"
+    },
+    {
+      id: 9,
+      title: "Remodelação completa de apartamentos",
+      excerpt: "Tudo o que precisa saber para remodelar apartamentos em Lisboa e Setúbal.",
+      category: "Remodelações",
+      keywords: "remodelação apartamento Lisboa, remodelação apartamento Setúbal",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/x7j3tbgy_aa16b504-d5ef-40ae-bb80-558385f10c9b.jpeg"
+    },
+    {
+      id: 10,
+      title: "Como escolher empresa de capoto confiável",
+      excerpt: "Dicas para escolher a melhor empresa de capoto em Lisboa e Setúbal.",
+      category: "Capoto",
+      keywords: "empresa capoto Lisboa, empresa capoto Setúbal",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/wihtnnfo_IMG_4369.jpeg"
+    },
+    {
+      id: 11,
+      title: "Preço do microcimento por m² em Lisboa e Setúbal",
+      excerpt: "Descubra o preço médio do microcimento em casas de banho, cozinhas e pavimentos.",
+      category: "Microcimento",
+      keywords: "microcimento preço m² Lisboa, microcimento Setúbal",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/hkb87782_IMG_3102.jpeg"
+    },
+    {
+      id: 12,
+      title: "Reformas rápidas: microcimento em paredes",
+      excerpt: "Saiba como reformar paredes com microcimento em Lisboa e Setúbal de forma prática.",
+      category: "Microcimento",
+      keywords: "microcimento paredes Lisboa, microcimento Setúbal",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/hkb87782_IMG_3102.jpeg"
+    },
+    {
+      id: 13,
+      title: "Orçamento de remodelações: como calcular",
+      excerpt: "Aprenda a calcular o orçamento de remodelações em Lisboa e Setúbal.",
+      category: "Remodelações",
+      keywords: "orçamento remodelação Lisboa, orçamento remodelação Setúbal",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/98j577ho_IMG_8821.jpeg"
+    },
+    {
+      id: 14,
+      title: "Capoto em apartamentos antigos",
+      excerpt: "Veja como o capoto pode melhorar apartamentos antigos em Lisboa e Setúbal.",
+      category: "Capoto",
+      keywords: "capoto apartamento Lisboa, capoto Setúbal",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/wihtnnfo_IMG_4369.jpeg"
+    },
+    {
+      id: 15,
+      title: "Microcimento moderno para cozinhas e casas de banho",
+      excerpt: "Transforme ambientes com microcimento em Lisboa e Setúbal.",
+      category: "Microcimento",
+      keywords: "microcimento Lisboa, microcimento cozinha Setúbal",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/hkb87782_IMG_3102.jpeg"
+    },
+    {
+      id: 16,
+      title: "Remodelação de apartamentos pequenos",
+      excerpt: "Dicas de remodelações eficientes para apartamentos pequenos em Lisboa e Setúbal.",
+      category: "Remodelações",
+      keywords: "remodelação apartamento Lisboa, remodelação apartamento Setúbal",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/x7j3tbgy_aa16b504-d5ef-40ae-bb80-558385f10c9b.jpeg"
+    },
+    {
+      id: 17,
+      title: "Benefícios do isolamento térmico com capoto",
+      excerpt: "Entenda os benefícios do capoto na redução de energia e conforto em Lisboa e Setúbal.",
+      category: "Capoto",
+      keywords: "isolamento térmico exterior Lisboa, capoto Setúbal",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/wihtnnfo_IMG_4369.jpeg"
+    },
+    {
+      id: 18,
+      title: "Microcimento: tendências de decoração 2026",
+      excerpt: "Descubra as tendências de microcimento em 2026 para casas em Lisboa e Setúbal.",
+      category: "Microcimento",
+      keywords: "microcimento moderno Lisboa, microcimento Setúbal",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/hkb87782_IMG_3102.jpeg"
+    },
+    {
+      id: 19,
+      title: "Como preparar a casa para remodelação",
+      excerpt: "Guia passo a passo para preparar a sua casa antes da remodelação em Lisboa e Setúbal.",
+      category: "Remodelações",
+      keywords: "remodelação Lisboa, remodelação Setúbal",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/98j577ho_IMG_8821.jpeg"
+    },
+    {
+      id: 20,
+      title: "Trabalhos de capoto, microcimento e remodelações concluídos",
+      excerpt: "Inspiração de projetos concluídos para gerar ideias em Lisboa e Setúbal.",
+      category: "Portfólio",
+      keywords: "capoto Lisboa, microcimento Setúbal, remodelação Lisboa",
+      image: "https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/x7j3tbgy_aa16b504-d5ef-40ae-bb80-558385f10c9b.jpeg"
     }
   ];
+
+  const categories = ['todos', 'Capoto', 'Microcimento', 'Remodelações', 'Portfólio'];
+  
+  const filteredArticles = selectedCategory === 'todos' 
+    ? articles 
+    : articles.filter(a => a.category === selectedCategory);
 
   return (
     <div className="pt-20">
       <section className="py-20 bg-[#1A1A1A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
-            Blog e Dicas
+            Blog – Capoto, Microcimento e Remodelações
           </h1>
           <p className="text-xl text-white/70">
-            Artigos úteis sobre capoto, microcimento e remodelações
+            Dicas, preços e informações sobre capoto, microcimento e remodelações em Lisboa e Setúbal
           </p>
+        </div>
+      </section>
+
+      {/* Category Filter */}
+      <section className="py-8 bg-[#F9F8F6]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap justify-center gap-3">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-6 py-2 font-medium text-sm uppercase tracking-wider transition-all ${
+                  selectedCategory === cat
+                    ? 'bg-[#C8553D] text-white'
+                    : 'bg-white text-[#1A1A1A] hover:bg-[#C8553D] hover:text-white'
+                }`}
+              >
+                {cat === 'todos' ? 'Todos' : cat}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.map((article) => (
-              <article key={article.id} className="bg-[#F9F8F6] overflow-hidden group cursor-pointer">
-                <div className="overflow-hidden">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredArticles.map((article) => (
+              <article key={article.id} className="bg-[#F9F8F6] overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow">
+                <div className="overflow-hidden h-40">
                   <img
                     src={article.image}
                     alt={article.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-5">
                   <span className="text-xs text-[#C8553D] uppercase tracking-wider font-semibold">
                     {article.category}
                   </span>
-                  <h2 className="text-xl font-bold text-[#1A1A1A] mt-2 mb-3 group-hover:text-[#C8553D] transition-colors">
+                  <h2 className="text-lg font-bold text-[#1A1A1A] mt-2 mb-2 group-hover:text-[#C8553D] transition-colors line-clamp-2">
                     {article.title}
                   </h2>
-                  <p className="text-[#8C8C8C] text-sm">{article.excerpt}</p>
+                  <p className="text-[#8C8C8C] text-sm line-clamp-2">{article.excerpt}</p>
+                  <div className="mt-4 flex items-center gap-2 text-[#C8553D] text-sm font-semibold">
+                    Ler mais <ArrowRight className="w-4 h-4" />
+                  </div>
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 bg-[#C8553D]">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-extrabold text-white mb-6">
+            Precisa de Ajuda com o Seu Projeto?
+          </h2>
+          <p className="text-white/80 mb-8">
+            Peça o seu orçamento gratuito agora
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => setCurrentPage('calculadora')}
+              className="bg-white text-[#C8553D] px-8 py-4 font-bold hover:bg-[#F9F8F6] transition-colors"
+            >
+              Peça Orçamento
+            </button>
+            <a
+              href="https://wa.me/message/IX2WE2EQUCMMP1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#25D366] text-white px-8 py-4 font-bold hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2"
+            >
+              <MessageCircle className="w-5 h-5" />
+              WhatsApp
+            </a>
           </div>
         </div>
       </section>
