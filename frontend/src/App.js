@@ -1251,12 +1251,13 @@ const CalculadoraPage = () => {
                       className="w-full border border-[#E5E0D8] p-4 focus:border-[#C8553D] outline-none"
                     >
                       <option value="">Selecione...</option>
-                      <option value="capoto">Capoto / ETICS</option>
-                      <option value="microcimento">Microcimento</option>
-                      <option value="pintura_interior">Pintura Interior</option>
-                      <option value="pintura_exterior">Pintura Exterior</option>
-                      <option value="limpeza_telhado">Limpeza de Telhado</option>
-                      <option value="remodelacao_wc">Remodelação Casa de Banho</option>
+                      <option value="construcao">Construção (430€-1800€/m²)</option>
+                      <option value="capoto">Capoto / ETICS (50€-90€/m²)</option>
+                      <option value="microcimento">Microcimento (60€-130€/m²)</option>
+                      <option value="pintura_interior">Pintura Interior (7€-15€/m²)</option>
+                      <option value="pintura_exterior">Pintura Exterior (9€-16€/m²)</option>
+                      <option value="limpeza_telhado">Limpeza de Telhado (5€-12€/m²)</option>
+                      <option value="remodelacao_wc">Remodelação Casa de Banho (3000€-9000€)</option>
                     </select>
                   </div>
 
