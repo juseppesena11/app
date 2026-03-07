@@ -2081,7 +2081,7 @@ function App() {
       case 'portfolio': return <PortfolioPage setCurrentPage={setCurrentPage} />;
       case 'precos': return <PrecosPage setCurrentPage={setCurrentPage} />;
       case 'calculadora': return <CalculadoraPage />;
-      case 'blog': return <BlogPage />;
+      case 'blog': return <BlogPage setCurrentPage={setCurrentPage} />;
       case 'zonas': return <ZonasPage setCurrentPage={setCurrentPage} />;
       case 'contacto': return <ContactoPage />;
       default: return <HomePage setCurrentPage={setCurrentPage} />;
