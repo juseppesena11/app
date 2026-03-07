@@ -1701,6 +1701,11 @@ const WhatsAppButton = () => {
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
+  // Update SEO when page changes
+  useEffect(() => {
+    updatePageSEO(currentPage);
+  }, [currentPage]);
+
   const renderPage = () => {
     switch(currentPage) {
       case 'home': return <HomePage setCurrentPage={setCurrentPage} />;
@@ -1711,6 +1716,7 @@ function App() {
       case 'precos': return <PrecosPage setCurrentPage={setCurrentPage} />;
       case 'calculadora': return <CalculadoraPage />;
       case 'blog': return <BlogPage />;
+      case 'zonas': return <ZonasPage setCurrentPage={setCurrentPage} />;
       case 'contacto': return <ContactoPage />;
       default: return <HomePage setCurrentPage={setCurrentPage} />;
     }
