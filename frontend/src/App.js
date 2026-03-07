@@ -1071,7 +1071,7 @@ const ContactSection = () => {
   };
 
   const contactInfo = [
-    { icon: Phone, label: "Telefone", value: "+351 925 608 516" },
+    { icon: Phone, label: "Telefone", value: "+351 926 378 947" },
     { icon: Mail, label: "Email", value: "Juseppesena11@gmail.com" },
     { icon: MapPin, label: "Localização", value: "Lisboa, Portugal" },
     { icon: Clock, label: "Horário", value: "Seg-Sex: 9h-18h" }
@@ -1277,11 +1277,10 @@ const Footer = () => {
 
 // WhatsApp Button
 const WhatsAppButton = () => {
-  const phoneNumber = "351925608516";
-  const message = "Olá! Gostaria de saber mais sobre os vossos serviços.";
+  const whatsappLink = "https://wa.me/message/IX2WE2EQUCMMP1";
   
   const handleClick = () => {
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(whatsappLink, '_blank');
   };
 
   return (
