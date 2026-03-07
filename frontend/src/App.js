@@ -230,10 +230,10 @@ const HomePage = ({ setCurrentPage }) => {
               Lisboa • Setúbal • Almada • Seixal • Barreiro
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-              Capoto, Microcimento e Remodelações
+              Construção, Reabilitação, Capoto e Microcimento
             </h1>
             <p className="text-xl text-white/80 mb-8 max-w-2xl">
-              Especialistas em isolamento térmico (ETICS), microcimento e remodelações completas. 
+              Especialistas em construção civil, reabilitação de edifícios, isolamento térmico (ETICS) e microcimento. 
               Trabalhamos em Lisboa, Setúbal, Almada, Seixal, Barreiro, Montijo e arredores.
             </p>
             
