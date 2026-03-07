@@ -1680,6 +1680,176 @@ const Footer = ({ setCurrentPage }) => {
   );
 };
 
+// ==================== ZONAS PAGE (SEO LOCAL) ====================
+const ZonasPage = ({ setCurrentPage }) => {
+  const zonas = [
+    {
+      nome: "Lisboa",
+      servicos: ["Capoto em Lisboa", "Microcimento em Lisboa", "Remodelações em Lisboa"],
+      descricao: "Prestamos serviços em toda a cidade de Lisboa e arredores. Capoto, microcimento e remodelações com qualidade garantida."
+    },
+    {
+      nome: "Setúbal",
+      servicos: ["Capoto em Setúbal", "Microcimento em Setúbal", "Remodelações em Setúbal"],
+      descricao: "Cobrimos toda a região de Setúbal. Especialistas em isolamento térmico e acabamentos modernos."
+    },
+    {
+      nome: "Almada",
+      servicos: ["Capoto em Almada", "Microcimento em Almada", "Remodelações em Almada"],
+      descricao: "Serviços de capoto, microcimento e remodelações na Margem Sul. Orçamento gratuito."
+    },
+    {
+      nome: "Seixal",
+      servicos: ["Capoto no Seixal", "Microcimento no Seixal", "Remodelações no Seixal"],
+      descricao: "Atendemos todo o concelho do Seixal com serviços de qualidade em capoto e remodelações."
+    },
+    {
+      nome: "Barreiro",
+      servicos: ["Capoto no Barreiro", "Microcimento no Barreiro", "Remodelações no Barreiro"],
+      descricao: "Capoto, microcimento e remodelações completas no Barreiro e arredores."
+    },
+    {
+      nome: "Montijo",
+      servicos: ["Capoto no Montijo", "Microcimento no Montijo", "Remodelações no Montijo"],
+      descricao: "Serviços profissionais de isolamento térmico e remodelações no Montijo."
+    },
+    {
+      nome: "Palmela",
+      servicos: ["Capoto em Palmela", "Microcimento em Palmela", "Remodelações em Palmela"],
+      descricao: "Cobrimos todo o concelho de Palmela com serviços de capoto e remodelações."
+    },
+    {
+      nome: "Sesimbra",
+      servicos: ["Capoto em Sesimbra", "Microcimento em Sesimbra", "Remodelações em Sesimbra"],
+      descricao: "Serviços de capoto e microcimento na região de Sesimbra."
+    },
+    {
+      nome: "Amadora",
+      servicos: ["Capoto na Amadora", "Microcimento na Amadora", "Remodelações na Amadora"],
+      descricao: "Atendemos toda a Amadora com serviços de isolamento térmico e remodelações."
+    },
+    {
+      nome: "Sintra",
+      servicos: ["Capoto em Sintra", "Microcimento em Sintra", "Remodelações em Sintra"],
+      descricao: "Capoto, microcimento e remodelações em todo o concelho de Sintra."
+    },
+    {
+      nome: "Cascais",
+      servicos: ["Capoto em Cascais", "Microcimento em Cascais", "Remodelações em Cascais"],
+      descricao: "Serviços premium de capoto e remodelações na linha de Cascais."
+    },
+    {
+      nome: "Oeiras",
+      servicos: ["Capoto em Oeiras", "Microcimento em Oeiras", "Remodelações em Oeiras"],
+      descricao: "Atendemos todo o concelho de Oeiras com qualidade garantida."
+    }
+  ];
+
+  return (
+    <div className="pt-20">
+      {/* Hero */}
+      <section className="py-20 bg-[#1A1A1A]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
+            Zonas de Atuação
+          </h1>
+          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            Prestamos serviços de capoto, microcimento e remodelações em Lisboa, Setúbal e toda a área metropolitana. 
+            Orçamento gratuito em todas as zonas.
+          </p>
+        </div>
+      </section>
+
+      {/* Zonas Grid */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {zonas.map((zona) => (
+              <div key={zona.nome} className="bg-[#F9F8F6] p-6 hover:shadow-lg transition-shadow">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-[#C8553D] flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-white" />
+                  </div>
+                  <h2 className="text-xl font-bold text-[#1A1A1A]">{zona.nome}</h2>
+                </div>
+                <p className="text-[#8C8C8C] text-sm mb-4">{zona.descricao}</p>
+                <ul className="space-y-2 mb-4">
+                  {zona.servicos.map((servico) => (
+                    <li key={servico} className="flex items-center gap-2 text-sm">
+                      <CheckCircle2 className="w-4 h-4 text-[#25D366]" />
+                      <span className="text-[#1A1A1A]">{servico}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  onClick={() => setCurrentPage('calculadora')}
+                  className="text-[#C8553D] font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+                >
+                  Pedir orçamento <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Keywords Section for SEO */}
+      <section className="py-16 bg-[#F9F8F6]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#1A1A1A] mb-8 text-center">
+            Pesquisas Populares na Nossa Área
+          </h2>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              "capoto lisboa", "capoto setubal", "capoto almada", "capoto seixal",
+              "microcimento lisboa", "microcimento casa de banho", "microcimento preço m2",
+              "remodelação casa banho lisboa", "remodelação apartamento setubal",
+              "isolamento termico exterior", "etics portugal", "capoto preço m2",
+              "remodelações almada", "remodelações barreiro", "capoto montijo"
+            ].map((keyword) => (
+              <span 
+                key={keyword}
+                className="bg-white px-4 py-2 text-sm text-[#8C8C8C] hover:bg-[#C8553D] hover:text-white transition-colors cursor-default"
+              >
+                {keyword}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 bg-[#C8553D]">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-extrabold text-white mb-6">
+            A Sua Zona Está na Nossa Área de Cobertura?
+          </h2>
+          <p className="text-white/80 mb-8">
+            Contacte-nos para confirmar e pedir um orçamento gratuito
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => setCurrentPage('calculadora')}
+              className="bg-white text-[#C8553D] px-8 py-4 font-bold hover:bg-[#F9F8F6] transition-colors"
+            >
+              Pedir Orçamento Gratuito
+            </button>
+            <a
+              href="https://wa.me/message/IX2WE2EQUCMMP1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#25D366] text-white px-8 py-4 font-bold hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2"
+            >
+              <MessageCircle className="w-5 h-5" />
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
 // ==================== WHATSAPP BUTTON ====================
 const WhatsAppButton = () => {
   return (
