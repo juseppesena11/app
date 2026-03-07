@@ -217,8 +217,8 @@ const HomePage = ({ setCurrentPage }) => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0">
           <img
-            src="https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/wihtnnfo_IMG_4369.jpeg"
-            alt="Capoto ETICS em Lisboa e Setúbal"
+            src="https://customer-assets.emergentagent.com/job_38bf4d03-1170-491a-92fb-0378dbac25b3/artifacts/xlk06883_IMG_1596.png"
+            alt="Construção e Reabilitação em Lisboa e Setúbal"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A]/90 via-[#1A1A1A]/70 to-[#1A1A1A]/50"></div>
