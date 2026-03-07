@@ -37,47 +37,57 @@ const SEO_KEYWORDS = {
   ]
 };
 
-// SEO Page Titles and Descriptions
+// SEO Page Titles and Descriptions - COMPLETO
 const SEO_META = {
   home: {
     title: "Capoto, Microcimento e Remodelações em Lisboa e Setúbal | AUREON",
-    description: "Profissionais em capoto, microcimento e remodelações em Lisboa, Setúbal e arredores. Orçamento gratuito e atendimento rápido pelo WhatsApp."
+    description: "Profissionais em capoto, microcimento e remodelações em Lisboa e Setúbal. Orçamento gratuito e atendimento rápido pelo WhatsApp.",
+    keywords: "capoto lisboa, microcimento setúbal, remodelações lisboa"
   },
   capoto: {
     title: "Capoto em Lisboa e Setúbal – Preço por m² e Orçamento | AUREON",
-    description: "Aplicamos capoto (ETICS) em Lisboa e Setúbal com preços competitivos. Orçamento gratuito e serviço profissional. Preço: 50€ a 90€/m²."
+    description: "Aplicamos capoto (ETICS) em Lisboa e Setúbal com preços competitivos. Orçamento gratuito e serviço profissional.",
+    keywords: "capoto lisboa, capoto setúbal, capoto preço m², isolamento térmico exterior lisboa, orçamento capoto"
   },
   microcimento: {
-    title: "Microcimento em Lisboa e Setúbal – Casas de Banho e Pavimentos | AUREON",
-    description: "Microcimento moderno e resistente aplicado em casas de banho, cozinhas e pavimentos. Orçamento gratuito em Lisboa e Setúbal."
+    title: "Microcimento em Lisboa e Setúbal – Casas de Banho, Cozinhas e Pavimentos | AUREON",
+    description: "Microcimento moderno e resistente aplicado em casas de banho, cozinhas e pavimentos. Orçamento gratuito em Lisboa e Setúbal.",
+    keywords: "microcimento lisboa, microcimento setúbal, microcimento preço m², microcimento casa de banho, microcimento cozinha"
   },
   remodelacoes: {
     title: "Remodelações de Casas e Apartamentos em Lisboa e Setúbal | AUREON",
-    description: "Remodelações completas em Lisboa e Setúbal: casas de banho, cozinhas, apartamentos e moradias. Orçamento gratuito."
+    description: "Remodelações completas em Lisboa e Setúbal: casas de banho, cozinhas, apartamentos e moradias. Orçamento gratuito.",
+    keywords: "remodelação casa de banho lisboa, remodelação apartamento setúbal, remodelar cozinha preço, obras gerais lisboa"
   },
   portfolio: {
     title: "Trabalhos Realizados – Capoto, Microcimento e Remodelações | AUREON",
-    description: "Veja os nossos trabalhos em capoto, microcimento e remodelações em Lisboa, Setúbal, Almada, Seixal e Barreiro."
+    description: "Veja os nossos projetos de capoto, microcimento e remodelações em Lisboa e Setúbal. Inspiração e confiança para o seu projeto.",
+    keywords: "capoto lisboa, microcimento setúbal, remodelações lisboa"
   },
   precos: {
-    title: "Preços de Capoto, Microcimento e Remodelações em Lisboa | AUREON",
-    description: "Tabela de preços: Capoto 50-90€/m², Microcimento 80-150€/m², Remodelação WC 3000-9000€. Orçamento gratuito."
+    title: "Preços de Capoto, Microcimento e Remodelações em Lisboa e Setúbal | AUREON",
+    description: "Consulte preços médios de capoto, microcimento e remodelações em Lisboa e Setúbal. Orçamento gratuito.",
+    keywords: "capoto preço m², microcimento preço m², remodelação casa de banho Lisboa"
   },
   calculadora: {
-    title: "Calculadora de Orçamento – Capoto, Microcimento, Remodelações | AUREON",
-    description: "Calcule o preço do seu projeto de capoto, microcimento ou remodelação. Estimativa instantânea e orçamento gratuito."
+    title: "Calculadora de Orçamento – Capoto, Microcimento e Remodelações | AUREON",
+    description: "Estime rapidamente o custo do seu projeto em Lisboa ou Setúbal. Orçamento personalizado e gratuito.",
+    keywords: "calculadora capoto, calculadora microcimento, orçamento remodelações Lisboa"
   },
   blog: {
-    title: "Blog – Dicas sobre Capoto, Microcimento e Remodelações | AUREON",
-    description: "Artigos úteis sobre preços de capoto, microcimento para casas de banho e dicas de remodelações em Portugal."
+    title: "Blog – Capoto, Microcimento e Remodelações | AUREON",
+    description: "Dicas, preços e informações sobre capoto, microcimento e remodelações em Lisboa e Setúbal.",
+    keywords: "preço capoto Lisboa, microcimento casa de banho, remodelação apartamento Setúbal"
   },
   contacto: {
-    title: "Contacto – Peça Orçamento Gratuito | AUREON",
-    description: "Contacte-nos para orçamento gratuito de capoto, microcimento e remodelações. WhatsApp, telefone e email disponíveis."
+    title: "Contacte-nos – Orçamento Grátis | AUREON",
+    description: "Entre em contacto com os nossos especialistas em capoto, microcimento e remodelações em Lisboa e Setúbal. Atendimento rápido pelo WhatsApp.",
+    keywords: "contacto capoto Lisboa, microcimento Setúbal, orçamento remodelação"
   },
   zonas: {
-    title: "Zonas de Atuação – Lisboa, Setúbal e Arredores | AUREON",
-    description: "Prestamos serviços de capoto, microcimento e remodelações em Lisboa, Setúbal, Almada, Seixal, Barreiro e Montijo."
+    title: "Serviços em Lisboa, Setúbal e arredores | AUREON",
+    description: "Capoto, microcimento e remodelações em Lisboa, Setúbal, Almada, Seixal, Barreiro e Montijo. Orçamento gratuito.",
+    keywords: "capoto Lisboa, microcimento Setúbal, remodelações Almada"
   }
 };
 
