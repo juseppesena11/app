@@ -292,19 +292,51 @@ const HomePage = ({ setCurrentPage }) => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Construção */}
+            <div 
+              onClick={() => setCurrentPage('calculadora')}
+              className="group cursor-pointer bg-[#F9F8F6] p-6 hover:shadow-xl transition-all border-b-4 border-transparent hover:border-[#C8553D]"
+            >
+              <Building2 className="w-10 h-10 text-[#C8553D] mb-4" />
+              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Construção</h3>
+              <p className="text-[#8C8C8C] text-sm mb-3">
+                Construção de moradias, apartamentos e edifícios. Projetos chave na mão.
+              </p>
+              <p className="text-[#C8553D] font-bold mb-3">430€ a 1800€/m²</p>
+              <span className="text-[#1A1A1A] font-semibold text-sm flex items-center gap-2 group-hover:text-[#C8553D]">
+                Saber mais <ArrowRight className="w-4 h-4" />
+              </span>
+            </div>
+
+            {/* Reabilitação */}
+            <div 
+              onClick={() => setCurrentPage('remodelacoes')}
+              className="group cursor-pointer bg-[#F9F8F6] p-6 hover:shadow-xl transition-all border-b-4 border-transparent hover:border-[#C8553D]"
+            >
+              <Hammer className="w-10 h-10 text-[#C8553D] mb-4" />
+              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Reabilitação</h3>
+              <p className="text-[#8C8C8C] text-sm mb-3">
+                Reabilitação de edifícios, remodelações de casas de banho e cozinhas.
+              </p>
+              <p className="text-[#C8553D] font-bold mb-3">WC: 3000€ a 9000€</p>
+              <span className="text-[#1A1A1A] font-semibold text-sm flex items-center gap-2 group-hover:text-[#C8553D]">
+                Saber mais <ArrowRight className="w-4 h-4" />
+              </span>
+            </div>
+
             {/* Capoto */}
             <div 
               onClick={() => setCurrentPage('capoto')}
-              className="group cursor-pointer bg-[#F9F8F6] p-8 hover:shadow-xl transition-all border-b-4 border-transparent hover:border-[#C8553D]"
+              className="group cursor-pointer bg-[#F9F8F6] p-6 hover:shadow-xl transition-all border-b-4 border-transparent hover:border-[#C8553D]"
             >
-              <ThermometerSun className="w-12 h-12 text-[#C8553D] mb-6" />
-              <h3 className="text-2xl font-bold text-[#1A1A1A] mb-4">Capoto (ETICS)</h3>
-              <p className="text-[#8C8C8C] mb-4">
-                Isolamento térmico pelo exterior. Reduz consumo energético até 40% e valoriza o imóvel.
+              <ThermometerSun className="w-10 h-10 text-[#C8553D] mb-4" />
+              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Capoto (ETICS)</h3>
+              <p className="text-[#8C8C8C] text-sm mb-3">
+                Isolamento térmico pelo exterior. Reduz consumo energético até 40%.
               </p>
-              <p className="text-[#C8553D] font-bold mb-4">Preço: 50€ a 90€/m²</p>
-              <span className="text-[#1A1A1A] font-semibold flex items-center gap-2 group-hover:text-[#C8553D]">
+              <p className="text-[#C8553D] font-bold mb-3">50€ a 90€/m²</p>
+              <span className="text-[#1A1A1A] font-semibold text-sm flex items-center gap-2 group-hover:text-[#C8553D]">
                 Saber mais <ArrowRight className="w-4 h-4" />
               </span>
             </div>
@@ -312,31 +344,15 @@ const HomePage = ({ setCurrentPage }) => {
             {/* Microcimento */}
             <div 
               onClick={() => setCurrentPage('microcimento')}
-              className="group cursor-pointer bg-[#F9F8F6] p-8 hover:shadow-xl transition-all border-b-4 border-transparent hover:border-[#C8553D]"
+              className="group cursor-pointer bg-[#F9F8F6] p-6 hover:shadow-xl transition-all border-b-4 border-transparent hover:border-[#C8553D]"
             >
-              <Paintbrush className="w-12 h-12 text-[#C8553D] mb-6" />
-              <h3 className="text-2xl font-bold text-[#1A1A1A] mb-4">Microcimento</h3>
-              <p className="text-[#8C8C8C] mb-4">
-                Revestimento moderno sem juntas para casas de banho, cozinhas e pavimentos.
+              <Paintbrush className="w-10 h-10 text-[#C8553D] mb-4" />
+              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Microcimento</h3>
+              <p className="text-[#8C8C8C] text-sm mb-3">
+                Revestimento moderno sem juntas para casas de banho e pavimentos.
               </p>
-              <p className="text-[#C8553D] font-bold mb-4">Preço: 80€ a 150€/m²</p>
-              <span className="text-[#1A1A1A] font-semibold flex items-center gap-2 group-hover:text-[#C8553D]">
-                Saber mais <ArrowRight className="w-4 h-4" />
-              </span>
-            </div>
-
-            {/* Remodelações */}
-            <div 
-              onClick={() => setCurrentPage('remodelacoes')}
-              className="group cursor-pointer bg-[#F9F8F6] p-8 hover:shadow-xl transition-all border-b-4 border-transparent hover:border-[#C8553D]"
-            >
-              <Hammer className="w-12 h-12 text-[#C8553D] mb-6" />
-              <h3 className="text-2xl font-bold text-[#1A1A1A] mb-4">Remodelações</h3>
-              <p className="text-[#8C8C8C] mb-4">
-                Remodelação de casas de banho, cozinhas e apartamentos completos.
-              </p>
-              <p className="text-[#C8553D] font-bold mb-4">Casa de banho: 3000€ a 9000€</p>
-              <span className="text-[#1A1A1A] font-semibold flex items-center gap-2 group-hover:text-[#C8553D]">
+              <p className="text-[#C8553D] font-bold mb-3">60€ a 130€/m²</p>
+              <span className="text-[#1A1A1A] font-semibold text-sm flex items-center gap-2 group-hover:text-[#C8553D]">
                 Saber mais <ArrowRight className="w-4 h-4" />
               </span>
             </div>
