@@ -1165,8 +1165,9 @@ const CalculadoraPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const precos = {
+    construcao: { min: 430, max: 1800 },
     capoto: { min: 50, max: 90 },
-    microcimento: { min: 80, max: 150 },
+    microcimento: { min: 60, max: 130 },
     pintura_interior: { min: 7, max: 15 },
     pintura_exterior: { min: 9, max: 16 },
     limpeza_telhado: { min: 5, max: 12 },
